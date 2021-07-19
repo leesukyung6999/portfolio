@@ -1,0 +1,117 @@
+@charset "utf-8";
+@import "_mixin", "_var";
+
+body, h1, h2, h3, h4, h5, h6, p, ul{margin: 0;padding: 0;}
+h1, h2, h3, h4, h5, h6{font-size: 100%;}
+ul{list-style: none;}
+a:link, a:visited, a:hover, a:active{text-decoration: none;color: inherit;}
+button{border: none;background: none;cursor: pointer;font-family: inherit;font-size: inherit;color: inherit;}
+img{vertical-align: top;max-width: 100%;}
+header, nav, aside, section{display: block;}
+
+body{font-family: "noto sans kr";color: #fff;}
+
+// #wrap
+#wrap{overflow: hidden;}
+// #header
+#header{
+    @include flex;
+    @include justify-content(space-between);
+    @include align-items;
+    position: absolute;left: 0;top: 0;width: 100%;height: 100px;padding: 0 70px;box-sizing: border-box;z-index: 100;
+    h1{font-size: 30px;}
+    #gnb ul{
+        @include flex;
+        li{margin-right: 84px;font-size: 20px;}
+    }
+}
+// intro
+#intro{
+    position: relative;background: linear-gradient($pink, $wPurple);
+    #introTop{
+        @include flex;
+        position: absolute;left: 0;top: 100px;width: 100%;z-index: 50;
+        .hello{
+            position: relative;
+            h2{
+                @include translate-50;
+                font-size: 150px;position: absolute;left: 50%;top: 50%;opacity: 0.5;
+            }
+        }
+        .balloons{
+           position: relative;width: 45%;
+           .balloon2{position: absolute;right: 0;top: 0;}
+        }
+    }
+    #introBtm{
+        @include flex;
+        @include justify-content(space-between);
+        .balloon3{margin-left: 100px;}
+        .cloud2{height: 232px;}
+    }
+    .up{
+        /* @include transform(translateY(100px));
+        opacity: 0; */
+    }
+    .up.on{
+        @include transform(translateY(0));
+        opacity: 1;
+    }
+}
+// aside#banner > nav#snb
+#banner{
+    position: fixed;right: 3%;top: 10%;background: url("../images/sub_nav.png") no-repeat center;width: 235px;height: 667px;
+    #snb{
+        position: absolute;right: 10%;top: 47%;
+        li{margin-bottom: 50px;}
+    }
+}
+// about
+#about{
+    position: relative;height: 100vh;background: linear-gradient($wPurple, #AB9CDE);
+    .txt, .window{
+        @include transition(all 0.5s);
+        position: absolute;left: 0;top: 0; 
+    }
+    .txt{
+        color: #707070;box-sizing: border-box;background: rgba(255,255,255,.75);width: 0;height: 0;overflow: hidden;
+        h2{font-size: 50px;font-weight: 700;margin-bottom: 85px;}
+        p{margin-bottom: 55px;}
+        .go_back{position: absolute;right: 50px;bottom: 50px;width: 175px;height: 175px;z-index: 5;}
+    }
+    .window{
+        @include flex;
+        @include flex-direction;
+        @include align-items;
+        @include translateX-50;
+        width: 700px;height: 860px;margin: 100px auto;left: 50%;z-index: 50;
+        .birds, .angel, .cloud, .open{position: absolute;}
+        .birds{left: 50%;top: 20%;}
+        .cloud{left: 0;top: 30%;}
+        .angel{left: 35%;top: 40%;}
+        .open{
+            left: 75%;top: 80%;border-radius: 15px;border: 2px solid #fff;padding: 5px 20px;transform-style: preserve-3d;transition: transform 150ms cubic-bezier(0, 0, 0.58, 1);background: $wPurple;
+            &::before{
+                @include transform(translate3d(0, 15px, -20px));
+                content: "";position: absolute;left: -2px;top: -7px;width: 100%;height: 100%;border: 2px solid #fff;border-radius: inherit;
+            }
+            &:hover, &:focus{
+                @include transform(translate(0,5px));
+                &::before{
+                    @include transform(translate3d(0,12px, -20px))
+                }
+            }
+        }
+    }
+}
+#about.on{
+    .txt{width: 100%;height: 100%;padding: 100px 100px 100px 50%;}
+    .window{
+        @include transform(translateX(0));
+        left: 0;
+        .open{display: none;}
+    }
+}
+// work
+// skill
+// contact
