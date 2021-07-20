@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> 이수경 포트폴리오 </title>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:regular,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:regular,600,700" rel="stylesheet">
   <link rel="icon" href="images/fav.ico">
   <link rel="stylesheet" href="css/portfolio.css">
   <script src="js/jquery-1.12.4.min.js"></script>
@@ -16,7 +16,9 @@
 <body>
   <div id="wrap">
     <header id="header">
-      <h1>Sukyung</h1>
+      <h1>
+        <a href="index.html">Sukyung</a>
+      </h1>
       <nav id="gnb">
         <ul>
           <li><a href="#about">About</a></li>
@@ -26,6 +28,75 @@
         </ul>
       </nav>
     </header>
+    <section id="intro">
+      <div class="intro_top intro">
+        <h2 class="hello">hello</h2>
+        <img src="images/1_cloud1.png" alt="" class="cloud">
+        <span class="balloons">
+          <img src="images/1_pink_s_bal.png" alt="" class="balloon">
+          <img src="images/1_purple_bal.png" alt="" class="balloon">
+        </span>
+      </div>      
+      <div class="intro_btm intro">
+        <span class="balloons">
+          <img src="images/1_purple_bal.png" alt="" class="balloon">
+          <img src="images/1_pink_b_bal.png" alt="" class="balloon">
+        </span>
+        <img src="images/1_cloud2.png" alt="" class="cloud">
+      </div>
+    </section>
+    <section id="about">
+      <div class="window">
+        <h2><img src="images/2_about.png" alt="About me"></h2>
+        <img src="images/2_window.png" alt="" class="window_sky">
+        <img src="images/2_birds.png" alt="" class="birds">
+        <img src="images/2_cloud.png" alt="" class="cloud">
+        <img src="images/2_angel.png" alt="" class="angel">
+        <button type="button" class="open">자세히 보기</button>
+      </div>
+      <div class="txt">
+        <h2>안녕하세요, <br> 웹 퍼블리셔 이수경입니다.</h2>
+        <p class="one">
+          이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+        </p>
+        <p class="two">
+          이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+        </p>
+        <button type="button" class="go_back">Back</button>
+      </div>
+    </section>
+    <section id="work">
+      <div class="front_back">
+        <div class="front">
+          <div class="moon_top">
+            <h2><img src="images/3_work.png" alt="작업물"></h2>
+            <div class="best"><img src="images/3_sulwhasoo_best.png" alt=""></div>
+            <h3>Sulwhasoo</h3>
+            <div class="prev_next">
+              <button type="button" class="prev"><img src="images/prev_btn.png" alt="이전 버튼"></button>
+              <button type="button" class="next"><img src="images/next_btn.png" alt="다음 버튼"></button>
+            </div>
+            <button type="button" class="open sulwhasoo" aria-haspopup="dialog" title="대화상자" data-href="#modalWork">자세히 보기</button>
+          </div>
+          <img src="images/3_moon.png" alt="" class="moon">
+        </div>
+        <div class="back">
+          <div class="moon_top">
+            <h2><img src="images/3_work.png" alt="작업물"></h2>
+            <div class="best"><img src="images/3_kodak_best.png" alt=""></div>
+            <h3>Kodak</h3>
+            <div class="prev_next">
+              <button type="button" class="prev"><img src="images/prev_btn.png" alt="이전 버튼"></button>
+              <button type="button" class="next"><img src="images/next_btn.png" alt="다음 버튼"></button>
+            </div>
+            <button type="button" class="open kodak" aria-haspopup="dialog" title="대화상자" data-href="#modalWork">자세히 보기</button>
+          </div>
+          <img src="images/3_moon.png" alt="" class="moon">
+        </div>
+      </div>
+    </section>
+    <sectioon id="skill"></sectioon>
+    <section id="contact"></section>
     <aside id="banner">
       <nav id="snb">
         <ul>
@@ -36,50 +107,146 @@
         </ul>
       </nav>
     </aside>
-    <div id="intro">
-      <img src="images/1_rainbow.png" alt="서서히 드러나는 무지개" class="rainbow">
-      <div id="introTop" class="up">
-        <div class="hello">
-          <h2>hello</h2>
-          <img src="images/1_cloud1.png" alt="핑크빛 하늘 왼쪽에 떠있는 구름" class="cloud1">
+  </div>
+<!-- 모달 창 -->
+  <div id="modalWork" role="dialog" aria-modal="true" aria-label="작업물 상세보기">
+    <div class="modal_wrap">
+      <ul role="tablist">
+        <li role="tab" aria-controls="tabpanel1" id="tab1" class="tab">Sulwhasoo</li>
+        <li role="tab" aria-controls="tabpanel2" id="tab2" class="tab">Kodak</li>
+      </ul>
+      <div role="tabpanel" aria-labelledby="tab1" id="tabpanel1" class="tabpanel">
+        <div class="sticky clearfix">
+          <div class="md_tit">
+            <h4>Sul<br>wha<br>soo</h4>
+            <img src="images/3_sulwhasoo_pro1.png" alt="">
+            <img src="images/3_sulwhasoo_pro2.png" alt="">
+            <img src="images/3_sulwhasoo_pro3.png" alt="">
           </div>
-        <div class="balloons">
-          <img src="images/1_balloon2.png" alt="핑크빛 하늘 오른쪽 뒤에 떠있는 핑크색 열기구 2개" class="balloon1">
-          <img src="images/1_balloon3.png" alt="핑크빛 하늘 오른쪽 앞에 떠있는 핑크색 열기구" class="balloon2">
+          <ul>
+            <li>
+              <figure>
+                <img src="images/3_sulwhasoo_p1.png" alt="">
+              </figure>  
+              <strong class="b">1</strong>
+              <p>저의 첫번째 팀 프로젝트는 ‘설화수 리뉴얼’입니다. <br>제품의 ‘스킨케어’, ‘메이크업’과 커뮤니티의 ‘리뷰’페이지를 맡았습니다. <br>현재 보여지는 화면은 제품의 ‘스킨케어’로, 설화수의 가장 대표적인 제품인 윤조 에센스가  <br>보여지며 <span class="bb">마우스 오버</span>를 했을 때 <span class="bb">왼쪽으로 살짝 기울어지는 효과</span>를 주었습니다.</p>
+            </li>
+            <li>
+              <figure>
+                <img src="images/3_sulwhasoo_p2.png" alt="">
+              </figure>  
+              <strong class="b">2</strong>
+              <p>윤조 에센스 다음으로는, 설화수의 가장 대표적인 스킨라인 4지를 소개하고 있습니다. <br>모든 제품의 텍스처를 쉽게 알 수 있도록 해당 제품에 <span class="bb">마우스 오버</span>했을 경우 <br> <span class="bb">해당 제품의 텍스처</span> 사진을 보이게 했습니다.</p>
+            </li>
+            <li>
+              <figure>
+                <img src="images/3_sulwhasoo_p3.png" alt="">
+                <figcaption>
+                  <strong class="b">3</strong>
+                  <p>설화수는 3~40대를 주요 타켓층을 하고 있어 (주름개선)안티에이징을 세분화하여 <br>
+                    두 가지 라인을 선보이고 있습니다. 그렇기 때문에 안티에징 라인은 한 섹션에서 <br>
+                    <span class="bb">스와이퍼 슬라이더</span>를 통해 2가지 라인을 보여줄 수 있게 하였습니다. </p>
+                </figcaption>
+              </figure>  
+            </li>
+            <li>
+              <figure>
+                <img src="images/3_sulwhasoo_p4.png" alt="">
+                <figcaption>
+                  <strong class="b">4</strong>
+                  <p>현재 보여지고 있는 페이지는 커뮤니티의 리뷰 페이지로, <br>상단에는 베스트 리뷰 5개를 선정하여 사진이 슬라이더 형식으로 보여집니다. <br>또한, 각 사진 속 제품에 대한 리뷰는 마우스 오버를 할 경우 이미지 위에 포개어진 div 태그의 <br>투명도를 0에서 1로 전환되어 나타나게 하였습니다.</p>
+                </figcaption>
+              </figure>  
+            </li>
+          </ul>
         </div>
       </div>
-      <div id="introBtm" class="up">
-        <img src="images/1_balloon1.png" alt="핑크빛 하늘 왼쪽에 떠있는 보라색 열기구" class="balloon3">
-        <img src="images/1_cloud2.png" alt="핑크빛 하늘 오른쪽에 떠있는 구름" class="cloud2">
+      <div role="tabpanel" aria-labelledby="tab2" id="tabpanel2" class="tabpanel">
+        <div class="sticky clearfix">
+          <div class="md_tit">
+            <h4>Kodak</h4>
+            <img src="images/3_kodak_pro1.png" alt="">
+            <img src="images/3_kodak_pro2.png" alt="">
+            <img src="images/3_kodak_pro3.png" alt="">
+          </div>
+          <div class="responsive">
+            <ul role="tablist">
+              <li role="tab" aria-controls="tabpanelPC" id="tabPC" class="tabR">PC</li>
+              <li role="tab" aria-controls="tabpanelTb" id="tabTb" class="tabR">TABLET</li>
+              <li role="tab" aria-controls="tabpanelM" id="tabM" class="tabR">MOBILE</li>
+            </ul>
+            <div role="tabpanel" aria-labelledby="tabPC" id="tabpanelPC" class="tabpanelR">
+              <ul>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_p1.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>    
+                </li>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_p2.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>    
+                </li>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_p3.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>    
+                </li>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_p4.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>    
+                </li>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_p5.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>    
+                </li>
+              </ul>
+            </div>
+            <div role="tabpanel" aria-labelledby="tabTb" id="tabpanelTb" class="tabpanelR">
+              <p></p>
+              <img src="images/3_kodak_t.png" alt="">
+            </div>
+            <div role="tabpanel" aria-labelledby="tabM" id="tabpanelM" class="tabpanelR">
+              <p></p>
+              <ul>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_m_p1.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_m_p2.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_m_p3.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure>
+                    <img src="images/3_kodak_m_p4.png" alt="">
+                    <figcaption></figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <section id="about">
-      <div class="window">
-        <h2><img src="images/2_about.png" alt="About me"></h2>
-        <img src="images/2_window.png" alt="" class="window_sky">
-        <img src="images/2_birds.png" alt="" class="birds">
-        <img src="images/2_cloud.png" alt="" class="cloud">
-        <img src="images/2_angel.png" alt="" class="angel">
-        <button type="button" class="open">Click</button>
-      </div>
-      <div class="txt">
-        <h2>안녕하세요, <br> 웹 퍼블리셔 이수경입니다.</h2>
-        <p class="one">
-          이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-        </p>
-        <p class="two">
-          이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-        </p>
-        <p class="three">
-          이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-        </p>
-        <button type="button" class="go_back">Back</button>
-      </div>
-    </section>
-    <section id="work"></section>
-    <sectioon id="skill"></sectioon>
-    <section id="contact"></section>
-</div>
-</div>
+    <button type="button" class="close_btn"><img src="images/close_btn.png" alt="현재 창 닫기"></button>
+  </div>
 </body>
 </html>

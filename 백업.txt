@@ -1,48 +1,146 @@
-      <img src="images/1_rainbow.png" alt="서서히 드러나는 무지개" class="rainbow">
-      <div id="floatLeft" class="float">
-        <h2>hello</h2>
-        <img src="images/1_cloud1.png" alt="핑크빛 하늘 왼쪽에 떠있는 구름" class="cloud1">
-        <img src="images/1_balloon2.png" alt="핑크빛 하늘 왼쪽에 떠있는 파란색 열기구" class="balloon1">
-        <img src="images/1_balloon3.png" alt="핑크빛 하늘 가운데 아래에 떠있는 보라색 열기구" class="balloon3">
-      </div>
-      <div id="floatRight" class="float">
-        <img src="images/1_balloon1.png" alt="핑크빛 하늘 오른쪽 뒤에 떠있는 핑크색 열기구 2개" class="balloon2">
-        <img src="images/1_balloon3.png" alt="핑크빛 하늘 오른쪽 앞에 떠있는 핑크색 열기구" class="balloon3">
-        <img src="images/1_cloud2.png" alt="핑크빛 하늘 오른쪽에 떠있는 구름" class="cloud2">
-      </div>
+@charset "utf-8";
+@import "_mixin", "_var";
 
+body, h1, h2, h3, h4, h5, h6, p, ul{margin: 0;padding: 0;}
+h1, h2, h3, h4, h5, h6{font-size: 100%;}
+ul{list-style: none;}
+a:link, a:visited, a:hover, a:active{text-decoration: none;color: inherit;}
+button{border: none;background: none;cursor: pointer;font-family: inherit;font-size: inherit;color: inherit;}
+img{vertical-align: top;max-width: 100%;}
+header, nav, aside, section{display: block;}
 
-            <img src="images/1_rainbow.png" alt="서서히 드러나는 무지개" class="rainbow">
-      <div id="floatL" class="float">
-        <h2>hello</h2>
-        <img src="images/1_cloud1.png" alt="핑크빛 하늘 왼쪽에 떠있는 구름" class="cloud1">
-        <img src="images/1_balloon1.png" alt="핑크빛 하늘 왼쪽에 떠있는 보라색 열기구" class="balloon3">
-      </div>
-      <div id="floatR" class="float">
-        <div class="clouds">
-          <img src="images/1_balloon2.png" alt="핑크빛 하늘 오른쪽 뒤에 떠있는 핑크색 열기구 2개" class="balloon2">
-          <img src="images/1_balloon3.png" alt="핑크빛 하늘 오른쪽 앞에 떠있는 핑크색 열기구" class="balloon3">
-        </div>
-        <img src="images/1_cloud2.png" alt="핑크빛 하늘 오른쪽에 떠있는 구름" class="cloud2">
-      </div>
-    .rainbow{position: absolute;right: 0;top: 0;}
-    #floatL{
-        width: 55%;position: relative;
-        *{position: absolute;}
-        h2{font-size: 150px;top: 500px;left: 450px;z-index: -5;}
-        .cloud1{top: 250px;left: -300px;}
-        .balloon3{top: 850px;left: 100px;}
+body{font-family: "noto sans kr";color: #fff;}
+
+// #wrap
+#wrap{overflow: hidden;}
+// #header
+#header{
+    @include flex;
+    @include justify-content(space-between);
+    @include align-items;
+    position: absolute;left: 0;top: 0;width: 100%;height: 100px;padding: 0 70px;box-sizing: border-box;z-index: 100;
+    h1{font-size: 30px;}
+    #gnb ul{
+        @include flex;
+        li{margin-right: 84px;font-size: 20px;font-weight: 700;}
     }
-    #floatR{
-        width: 45%;text-align: right;padding-top: 100px;
-        .clouds{
-            @include flex;
-            @include justify-content(space-between);
-            flex-grow: 0;
-            width: 900px;
+}
+// intro
+#intro{
+    position: relative;background: linear-gradient($pink, $wPurple);
+    #introTop{
+        @include flex;
+        position: absolute;left: 0;top: 100px;width: 100%;z-index: 50;
+        .hello{
+            position: relative;
+            h2{
+                font-size: 150px;position: absolute;left: 0;top: 20%;opacity: 0.5;
+            }
+        }
+        .balloons{
+           position: relative;width: 45%;
+           #balloon2{position: absolute;right: -15%;top: 0;}
         }
     }
+    #introBtm{
+        @include flex;
+        @include justify-content(space-between);
+        margin-top: 100px;
+        #balloon3{margin-left: 150px;}
+        #cloud2{height: 232px;}
+    }
+    .up{
+        @include transform(translate(0,150px));
+        opacity: 0;
+    }
+    .up.on{
+        @include transform(translate(0,0));
+    }
+}
+// aside#banner > nav#snb
+#banner{
+    position: fixed;right: 3%;top: 10%;background: url("../images/sub_nav.png") no-repeat center;width: 235px;height: 667px;
+    #snb{
+        position: absolute;right: 10%;top: 47%;
+        li{margin-bottom: 50px;color: #816e5a;}
+    }
+}
+// about
+#about{
+    position: relative;height: 100vh;background: linear-gradient($wPurple, #AB9CDE);
+    .window, .txt{
+        @include transition(all 1s);
+        position: absolute;left: 0;top: 0; 
+    }
+    .window{
+        @include flex;
+        @include flex-direction;
+        @include align-items;
+        @include translateX-50;
+        width: 700px;height: 860px;margin: 0 auto;left: 50%;z-index: 50;padding-top: 100px;
+        .birds, .angel, .cloud, .open{position: absolute;}
+        .birds{left: 50%;top: 20%;}
+        .cloud{left: 0;top: 30%;}
+        .angel{left: 35%;top: 40%;}
+        .open{
+            left: 75%;top: 80%;border-radius: 15px;border: 2px solid #fff;padding: 5px 20px;transform-style: preserve-3d;transition: transform 150ms cubic-bezier(0, 0, 0.58, 1);background: $wPurple;
+            &::before{
+                @include transform(translate3d(0, 15px, -20px));
+                content: "";position: absolute;left: -2px;top: -7px;width: 100%;height: 100%;border: 2px solid #fff;border-radius: inherit;
+            }
+            &:hover, &:focus{
+                @include transform(translate(0,5px));
+                &::before{
+                    @include transform(translate3d(0,12px, -20px))
+                }
+            }
+        }
+    }
+    .txt{
+        color: #707070;box-sizing: border-box;background: rgba(255,255,255,.75);width: 0;height: 0;overflow: hidden;display: none;
+        h2{font-size: 50px;font-weight: 700;margin-bottom: 85px;}
+        p{margin-bottom: 55px;}
+        .go_back{position: absolute;right: 50px;bottom: 50px;width: 175px;height: 175px;z-index: 5;}
+    }
+}
+#about.on{
+    .txt{width: 100%;height: 100%;padding: 100px 100px 100px 50%;display: block;}
+    .window{
+        @include transform(translateX(0));
+        left: 0;background: linear-gradient($wPurple, #AB9CDE);
+        .open{display: none;}
+    }
+}
+// work
+#work{
+    background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;
+    .front_back{position: relative;margin: 0 auto;width: 1220px;height: 1900px;}
+    .front, .back{
+        @include flex;
+        @include flex-direction;
+        @include align-items;
+        @include translateX-50;
+        @include transition(all 1s);
+        position: absolute;left: 0;top: 0;width: 100%;height: 100%;
+        backface-visibility: hidden;
+        .moon_top{
+            
+            .best{height: 400px;}
+            h3{font-size: 100px;}
+            .prev_next{
+                position: absolute;left: 0;top: 27%;width: 100%;height: 64px;
+            }
+            .moon{width: 1000px;}
+        }
+    }
+    .front{@include transform(rotateY(0deg));}
+    .back{
+        @include transform(rotateY(-180deg));
+        .best img{padding: 100px 0;}
+    }
+    &:hover .front, &.flip .front{@include transform(rotateY(180deg));}
+    &:hover .back, &.flip .back{@include transform(rotateY(0deg));}
+}
 
-
-
-
+// skill
+// contact
