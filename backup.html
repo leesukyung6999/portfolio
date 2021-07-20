@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 이수경 포트폴리오 </title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:regular,700" rel="stylesheet">
+  <link rel="icon" href="images/fav.ico">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/portfolio.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <h1>Sukyung</h1>
+      <nav id="gnb">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="intro">
+      <img src="images/1_rainbow.png" alt="" class="rainbow">
+      <div id="introTop">
+        <div class="hello">
+          <h2>hello</h2>
+          <img src="images/1_cloud1.png" alt="" id="cloud1" class="cloud up">
+        </div>
+        <div class="balloons">
+          <img src="images/1_balloon2.png" alt="" id="balloon1" class="balloon up">
+          <img src="images/1_balloon3.png" alt="" id="balloon2" class="balloon up">
+        </div>
+      </div>
+      <div id="introBtm">
+        <img src="images/1_balloon1.png" alt="" id="balloon3" class="balloon up">
+        <img src="images/1_cloud2.png" alt="" id="cloud2" class="cloud up">
+      </div>
+    </section>
+    <section id="about">
+      <div class="window">
+        <h2><img src="images/2_about.png" alt="About me"></h2>
+        <img src="images/2_window.png" alt="" class="window_sky">
+        <img src="images/2_birds.png" alt="" class="birds">
+        <img src="images/2_cloud.png" alt="" class="cloud">
+        <img src="images/2_angel.png" alt="" class="angel">
+        <button type="button" class="open">Click</button>
+      </div>
+      <div class="txt">
+        <h2>안녕하세요, <br> 웹 퍼블리셔 이수경입니다.</h2>
+        <p class="one">
+          이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+        </p>
+        <p class="two">
+          이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+        </p>
+        <button type="button" class="go_back">Back</button>
+      </div>
+    </section>
+    <section id="work"></section>
+    <sectioon id="skill"></sectioon>
+    <section id="contact"></section>
+    <aside id="banner">
+      <nav id="snb">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+  <div id="modalWork" role="dialog" aria-modal="true" aria-label="작업물 자세히 보기">
+    <div id="sulwhasoo" class="sticky_wrap">
+      <div class="sticky">
+        <div class="fix">
+          <h3 class="mdTit">Sul<br>wha<br>soo</h3>
+        </div>
+        <div class="tab_content">
+          <ul role="tablist">
+            <li role="tab" aria-controls="tabpanel1" id="tab1" class="tab" data-href="#Sulwhasoo">Sulwhasoo</li>
+            <li role="tab" aria-controls="tabpanel2" id="tab2" class="tab" data-href="#Kodak">Kodak</li>
+          </ul>
+          <div class="tabpanel" aria-labelledby="tab1" id="tabpanel1" class="tabpanel">
+            <figure>
+              <img src="images/3_sulwhasoo_p1.png" alt="">
+              <figcaption></figcaption>
+            </figure>
+            <figure>
+              <img src="images/3_sulwhasoo_p2.png" alt="">
+              <figcaption></figcaption>
+            </figure>
+            <figure>
+              <img src="images/3_sulwhasoo_p3.png" alt="">
+              <figcaption></figcaption>
+            </figure>
+            <figure>
+              <img src="images/3_sulwhasoo_p4.png" alt="">
+              <figcaption></figcaption>
+            </figure>
+          </div>
+          <div class="tabpanel" aria-labelledby="tab1" id="tabpanel1" class="tabpanel">
+            <ul role="tablist">
+              <li role="tab" aria-controls="tabpanelPC" id="tabPC" class="tab_k">PC</li>
+              <li role="tab" aria-controls="tabpanelTb" id="tabTb" class="tab_k">TABLET</li>
+              <li role="tab" aria-controls="tabpanelM" id="tabM" class="tab_k">MOBILE</li>
+            </ul>
+            <div role="tabpanel" aria-labelledby="tabPC" id="tabpanelPC" class="tabpanel_K">
+              <figure>
+                <img src="images/3_kodak_p1.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img src="images/3_kodak_p2.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img src="images/3_kodak_p3.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img src="images/3_kodak_p4.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img src="images/3_kodak_p5.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+            </div>
+            <div role="tabpanel" aria-labelledby="tabTb" id="tabpanelTb" class="tabpanel_K">
+              <p></p>
+              <img src="images/3_kodak_t.png" alt="">
+            </div>
+            <div role="tabpanel" aria-labelledby="tabM" id="tabpanelM" class="tabpanel_K">
+              <p></p>
+              <figure>
+                <img src="images/3_kodak_m_p1.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img src="images/3_kodak_m_p2.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img src="images/3_kodak_m_p3.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+              <figure>
+                <img src="images/3_kodak_m_p4.png" alt="">
+                <figcaption></figcaption>
+              </figure>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <button type="button" class="close_btn"><img src="images/close_btn.png" alt="현재 창 닫기"></button>
+    </div>
+    <div id="Kodak" class="sticky_wrap">
+      <div class="sticky">
+
+      </div>
+      <button type="button" class="close_btn"><img src="images/close_btn.png" alt="현재 창 닫기"></button>
+    </div>
+  </div>
+</body>
+</html>
