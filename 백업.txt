@@ -1,3 +1,50 @@
+ <section id="about">
+      <div class="sticky">
+        <div class="window">
+          <div class="img_wrap">
+            <h2><img src="images/2_about.png" alt="About me"></h2>
+            <img src="images/2_window.png" alt="" class="window_sky">
+            <img src="images/2_birds.png" alt="" class="birds">
+            <img src="images/2_cloud.png" alt="" class="cloud">
+            <img src="images/2_angel.png" alt="" class="angel">
+          </div>
+        </div>
+        <div class="txt">
+          <div>
+            <h2>안녕하세요, 웹 퍼블리셔 이수경입니다.</h2>
+            <p class="one">
+              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+            </p>
+            <p class="two">
+              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+            </p>
+            <button type="button" class="go_back">Back</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @charset "utf-8";
 @import "_mixin", "_var";
 
@@ -123,6 +170,79 @@ body{font-family: "noto sans kr";color: #fff;}
     }
 }
 // about
+
+#about{
+    position: relative;height: 200vh;/* background: linear-gradient($wPurple, #AB9CDE); */border: 1px solid #000;
+    .sticky{
+        position: sticky; top: 0px; height: 100vh;
+    }
+    .window{
+        @include transition(all 0.5s ease-in-out);
+        position: relative;z-index: 50;text-align: center;width: 100%;height: 100vh;background: linear-gradient($wPurple, #AB9CDE);
+        .img_wrap{
+            @include translateX-50;
+            position: absolute;top: 0;left: 50%;width: 700px;
+        }
+        h2{padding: 50px 0;
+        }
+        .birds, .angel, .cloud, .open{position: absolute;}
+        .birds, .cloud{@include transition(all 1s 0.2s);}
+        .birds{left: 50%;top: 20%;}
+        .cloud{left: -20%;top: 30%;}
+        .angel{left: 35%;top: 50%;}
+    }
+    .txt{
+        @include flex;
+        @include justify-content(flex-end);
+        visibility: hidden;opacity: 0;position: absolute; left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.75);
+        div{width: 50%;padding: 5%;box-sizing: border-box;}
+        h2{font-size: 50px;font-weight: 700;margin-bottom: 85px;}
+        p{margin-bottom: 55px;}
+    }
+}
+#about.on{
+    .window{
+        width: 50%;height: 80vh;
+        .birds{left: 57%;top: 8%;}
+        .cloud{left: -30%;top: 23%;}
+        .open{display: none;}
+    }
+    .txt{
+        @include transition(all 1s 0.5s);
+        visibility: visible;opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #about{
     position: relative;height: 100vh;background: linear-gradient($wPurple, #AB9CDE);
     .window, .txt{

@@ -48,21 +48,27 @@
     <section id="about">
       <div class="sticky">
         <div class="window">
-          <h2><img src="images/2_about.png" alt="About me"></h2>
-          <img src="images/2_window.png" alt="" class="window_sky">
-          <img src="images/2_birds.png" alt="" class="birds">
-          <img src="images/2_cloud.png" alt="" class="cloud">
-          <img src="images/2_angel.png" alt="" class="angel">
+          <div class="img_wrap">
+            <h2><img src="images/2_about.png" alt="About me"></h2>
+            <img src="images/2_window.png" alt="" class="window_sky">
+            <img src="images/2_birds.png" alt="" class="birds">
+            <img src="images/2_cloud.png" alt="" class="cloud">
+            <img src="images/2_angel.png" alt="" class="angel">
+          </div>
         </div>
         <div class="txt">
-          <h2>안녕하세요, 웹 퍼블리셔 이수경입니다.</h2>
-          <p class="one">
-            이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-          </p>
-          <p class="two">
-            이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-          </p>
-          <button type="button" class="go_back">Back</button>
+          <div>
+            <h2>안녕하세요,<br> 웹 퍼블리셔 이수경입니다.</h2>
+            <p class="first">
+              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+            </p>
+            <p class="second">
+              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+            </p>
+            <p class="third">
+              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -80,11 +86,9 @@
             <button type="button" class="open kodak" aria-haspopup="dialog" title="대화상자" data-href="#modalWork">자세히
               보기</button>
         </div>
-        <div class="controller">
-          <div class="prev_next">
-            <button type="button" class="prev"><img src="images/prev_btn.png" alt="이전 버튼"></button>
-            <button type="button" class="next"><img src="images/next_btn.png" alt="다음 버튼"></button>
-          </div>
+        <div class="prev_next">
+          <button type="button" class="prev"><img src="images/prev_btn.png" alt="이전 버튼"></button>
+          <button type="button" class="next"><img src="images/next_btn.png" alt="다음 버튼"></button>
         </div>
       </div>
     </section>
@@ -102,10 +106,10 @@
   </div>
   <!-- 모달 창 -->
   <div id="modalWork" role="dialog" aria-modal="true" aria-label="작업물 상세보기">
-    <div class="modal_wrap active">
+    <div class="modal_wrap">
       <ul role="tablist">
         <li role="tab" aria-controls="tabpanel1" id="tab1" class="tab">Sulwhasoo</li>
-        <li role="tab" aria-controls="tabpanel2" id="tab2" class="tab on">Kodak</li>
+        <li role="tab" aria-controls="tabpanel2" id="tab2" class="tab">Kodak</li>
       </ul>
       <div role="tabpanel" aria-labelledby="tab1" id="tabpanel1" class="tabpanel clearfix">
         <div class="md_tit">
@@ -117,7 +121,7 @@
         <div class="move_up">
           <ul>
             <li>
-              <a href="https://leesukyung6999.github.io/sulwhasoo/">
+              <a href="https://leesukyung6999.github.io/sulwhasoo/" title="설화수 리뉴얼 페이지" target="_blank">
                 <img src="images/3_sulwhasoo_p1.png" alt="">
               </a>
               <strong class="b">1</strong>
@@ -126,7 +130,7 @@
                 주었습니다.</p>
             </li>
             <li>
-              <a href="https://leesukyung6999.github.io/sulwhasoo/">
+              <a href="https://leesukyung6999.github.io/sulwhasoo/" title="설화수 리뉴얼 페이지" target="_blank">
                 <img src="images/3_sulwhasoo_p2.png" alt="">
               </a>
               <strong class="b">2</strong>
@@ -134,7 +138,7 @@
                   오버</span>했을 경우 <span class="bb">해당 제품의 텍스처</span> 사진을 보이게 했습니다.</p>
             </li>
             <li>
-              <a href="https://leesukyung6999.github.io/sulwhasoo/">
+              <a href="https://leesukyung6999.github.io/sulwhasoo/" title="설화수 리뉴얼 페이지" target="_blank">
                 <img src="images/3_sulwhasoo_p3.png" alt="">
               </a>
               <strong class="b">3</strong>
@@ -143,7 +147,7 @@
                 <span class="bb">스와이퍼 슬라이더</span>를 통해 2가지 라인을 보여줄 수 있게 하였습니다. </p>
             </li>
             <li>
-              <a href="https://leesukyung6999.github.io/sulwhasoo/">
+              <a href="https://leesukyung6999.github.io/sulwhasoo/" title="설화수 리뉴얼 페이지" target="_blank">
                 <img src="images/3_sulwhasoo_p4.png" alt="">
               </a>
               <strong class="b">4</strong>
@@ -163,7 +167,7 @@
         </div>
         <div class="responsive">
           <ul role="tablist">
-            <li role="tab" aria-controls="tabpanelPC" id="tabPC" class="tabR">
+            <li role="tab" aria-controls="tabpanelPC" id="tabPC" class="tabR on">
               <img src="images/3_kodak_ico1.png" alt="">
               <h5>PC</h5>
             </li>
@@ -180,7 +184,7 @@
             <div role="tabpanel" aria-labelledby="tabPC" id="tabpanelPC" class="tabpanelR">
               <ul>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_p1.png" alt="">
                   </a>
                   <strong class="b">1</strong>
@@ -190,7 +194,7 @@
                   </p>
                 </li>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_p2.png" alt="">
                   </a>
                   <strong class="b">2</strong>
@@ -198,7 +202,7 @@
                       class="b_y">box-shadow 효과</span>를 주어 공중에 뜬 느낌을 주었습니다.</p>
                 </li>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_p3.png" alt="">
                   </a>
                   <strong class="b">3</strong>
@@ -207,7 +211,7 @@
                     모션이 마무리되도록 했습니다.</p>
                 </li>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_p4.png" alt="">
                   </a>
                   <strong class="b">4</strong>
@@ -215,7 +219,7 @@
                     활용하였으며, 사용자가 쉽게 접근할 수 있도록 마우스 모양의 아이콘이 좌우로 움직이는 동작을 CSS의 animation을 통해 구현했습니다.</p>
                 </li>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_p5.png" alt="">
                   </a>
                   <strong class="b">5</strong>
@@ -228,7 +232,7 @@
               <p>* PC버전과 디자인은 동일하며,<br>
                 Media query를 통해 창을 늘리거나 줄여도<br>
                 디자인이 유지되게 만들었습니다.</p>
-              <img src="images/3_kodak_t.png" alt="">
+              <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank"><img src="images/3_kodak_t.png" alt=""></a>
             </div>
             <div role="tabpanel" aria-labelledby="tabM" id="tabpanelM" class="tabpanelR">
               <p>* MOBILE버전은 PC버전과 달리 <br>
@@ -236,7 +240,7 @@
                 다르며, 아래는 차이점에 대한 설명입니다.</p>
               <ul>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_m_p1.png" alt="">
                   </a>
                   <div class="m_txt">
@@ -245,7 +249,7 @@
                   </div>
                 </li>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_m_p2.png" alt="">
                   </a>
                   <div class="m_txt">
@@ -256,7 +260,7 @@
                   </div>
                 </li>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_m_p3.png" alt="">
                   </a>
                   <div class="m_txt">
@@ -265,7 +269,7 @@
                   </div>
                 </li>
                 <li>
-                  <a href="https://leesukyung6999.github.io/kodak/">
+                  <a href="https://leesukyung6999.github.io/kodak/" title="코닥 리뉴얼 페이지" target="_blank">
                     <img src="images/3_kodak_m_p4.png" alt="">
                   </a>
                   <div class="m_txt">
@@ -281,7 +285,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="close_btn"><img src="images/close_btn.png" alt="현재 창 닫기"></button>
+    <button type="button" class="close_btn"><img src="images/close_btn_s.png" alt="현재 창 닫기"></button>
   </div>
 </body>
 

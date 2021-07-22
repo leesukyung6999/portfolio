@@ -12,7 +12,7 @@ $(document).ready(function(){
             }
         });
         const scrollTop = $(this).scrollTop();
-        // 2) about 창열리기 sticky로 제어
+        // 2) about
         if (scrollTop >= $('#about').offset().top && scrollTop < $('#about').offset().top + 1200) {
             $('#about').addClass('on');
         } else {
@@ -65,21 +65,25 @@ $(document).ready(function(){
         $('html, body').css({height: wrapHei, overflow: 'hidden'});
         // 2) 열려진 모달을 제외한 나머지에 스크린리더 접근 제한: aria-hidden, inert
         $md.removeAttr('aria-hidden','inert').siblings().attr({'aria-hidden': true,inert: ''});
-        // 3) #dim 동적생성
-        $md.before('<div id="dim></dim>');
 
         if ($(this).hasClass('sulwhasoo')){
-            btnNum = 0;
+            btnNum = 
             // 설화수 창 보이게 함
             $md.fadeIn().children('.modal_wrap').removeClass('active').find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().next().hide();
+            
+            setTimeout(function(){
+                $md.find('#tabpanel1').addClass('on');
+            }, 100);
             }
         else{
-            btnNum = 1;
             // 코닥 창 보이게 함
             $md.fadeIn().children('.modal_wrap').addClass('active').find('ul[role="tablist"] .tab:last-child').addClass('on').siblings().removeClass('on').parent().next().hide().next().show();
-        }
+            setTimeout(function(){
+                $md.find('#tabpanel2').addClass('on');
+            }, 100);
+            }
         // .md_tit 이미지들 떠오르게
-        productJump(btnNum);
+
     });
 
     // 3-3) work 모달창 안에서 설화수 -> 코닥 , 코닥 -> 설화수
@@ -88,14 +92,13 @@ $(document).ready(function(){
         const idxNum = $(this).index();
         //console.log(typeof idxNum);
         if (idxNum === 0) {
-            $mdWrap.removeClass('active').find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().next().hide();
+            $mdWrap.removeClass('active').children().eq(idxNum+1).find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().next().hide();
         }
         else {
             $mdWrap.addClass('active').find('ul[role="tablist"] .tab:last-child').addClass('on').siblings().removeClass('on').parent().next().hide().next().show();
         }
-         productJump(idxNum); 
     });
-    // 3-4)모달 창 닫기
+    //모달 창 닫기
     $md.find('.close_btn').on('click',function(){
         // 0) 모달 숨기기
         $md.fadeOut();
@@ -103,20 +106,11 @@ $(document).ready(function(){
         $('html, body').removeAttr('style');
         // 2) 닫힌 모달을 스크린리더 접근 제한: aria-hidden, inert 나머지는 aria-hidden, inert 없애기
         $md.attr({'aria-hidden': true,'inert': ''}).siblings().removeAttr('aria-hidden','inert');
-        // 3) #dim 없애기
-        $('#dim').remove();
-        // 4) .tabpanel.on 없애기 ( productJump 초기화)
-        $md.find('.modal_wrap > .tabpanel').removeClass('on');
-    });
-    $('#dim').on('click', function() {
-        $md.find('.close_btn').trigger('click');
+        // 3) 떠오른 제품 제자리로
+        $md.find('.tabpanel').removeClass('on');
     });
     
-    function productJump($num){
-        setTimeout(function(){
-            $md.find('.modal_wrap > .tabpanel').eq($num).addClass('on').siblings('.tabpanel').removeClass('on');
-        }, 100);
-    }
+    function productJump(){
 
-    // 3-5) 모달안에서 스크롤 내리면 .move_up 움직이기
+    }
 });

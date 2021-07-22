@@ -35,9 +35,6 @@ body {
   display: block;
   clear: both; }
 
-#wrap {
-  overflow: hidden; }
-
 #header {
   display: -webkit-box;
   display: -moz-box;
@@ -81,11 +78,6 @@ body {
   #intro .intro_top {
     position: relative; }
     #intro .intro_top .hello_move .hello {
-      -webkit-transform: translateZ(-500px);
-      -moz-transform: translateZ(-500px);
-      -ms-transform: translateZ(-500px);
-      -o-transform: translateZ(-500px);
-      transform: translateZ(-500px);
       position: absolute;
       left: 35%;
       top: 35%;
@@ -147,37 +139,38 @@ body {
 
 #about {
   position: relative;
-  height: 200vh;
+  height: 250vh;
   background: linear-gradient(#E2C1CD, #AB9CDE); }
-  #about .window, #about .txt {
-    -webkit-transition: all 1s;
-    transition: all 1s;
-    position: absolute;
-    left: 0;
-    top: 0; }
+  #about .sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh; }
   #about .window {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: 700px;
-    left: 50%;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    position: relative;
     z-index: 50;
-    padding: 50px 0;
-    margin: 0 auto; }
-    #about .window .birds, #about .window .angel, #about .window .cloud, #about .window .open {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#E2C1CD, #AB9CDE); }
+    #about .window .img_wrap {
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 700px; }
+    #about .window h2 {
+      padding: 50px 0; }
+    #about .window .birds, #about .window .angel, #about .window .cloud {
       position: absolute; }
+    #about .window .birds, #about .window .cloud {
+      -webkit-transition: all 1s 0.2s;
+      transition: all 1s 0.2s; }
     #about .window .birds {
       left: 50%;
       top: 20%; }
@@ -188,39 +181,47 @@ body {
       left: 35%;
       top: 50%; }
   #about .txt {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     color: #707070;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.75);
-    display: none; }
+    background: rgba(255, 255, 255, 0.65); }
+    #about .txt div {
+      width: 50%;
+      padding: 5%;
+      box-sizing: border-box; }
     #about .txt h2 {
       font-size: 50px;
       font-weight: 700;
       margin-bottom: 85px; }
     #about .txt p {
       margin-bottom: 55px; }
-    #about .txt .go_back {
-      position: absolute;
-      right: 50px;
-      bottom: 50px;
-      width: 175px;
-      height: 175px;
-      z-index: 5; }
 
 #about.on .window {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
-  left: 0;
-  background: linear-gradient(#E2C1CD, #AB9CDE); }
-  #about.on .window .open {
-    display: none; }
+  width: 50%;
+  height: 80vh; }
+  #about.on .window .birds {
+    left: 57%;
+    top: 25%; }
+  #about.on .window .cloud {
+    left: -20%;
+    top: 33%; }
 #about.on .txt {
-  width: 100%;
-  height: 100%;
-  padding: 100px 100px 100px 50%;
-  display: block; }
+  -webkit-transition: all 1s 0.5s;
+  transition: all 1s 0.5s;
+  visibility: visible;
+  opacity: 1; }
 
 #work {
   background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);
@@ -232,16 +233,10 @@ body {
     position: relative;
     margin: 0 auto;
     width: 1220px;
-    height: 800px; }
+    height: 880px; }
     #work .front_back .card {
       -webkit-transition: all 1s;
       transition: all 1s;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 50%;
-      backface-visibility: hidden;
       display: -webkit-box;
       display: -moz-box;
       display: -ms-flexbox;
@@ -252,26 +247,33 @@ body {
       flex-direction: column;
       -webkit-align-items: center;
       align-items: center;
-      margin-bottom: -350px;
-      position: relative;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
       z-index: 50; }
       #work .front_back .card h3 {
         font-size: 60px; }
       #work .front_back .card .open {
         border: 2px solid #fff;
-        border-radius: 15px;
-        padding: 5px 10px;
-        margin-top: 20px; }
-    #work .front_back .controller {
+        border-radius: 25px;
+        padding: 10px 15px;
+        margin-top: 40px; }
+      #work .front_back .card .open:hover {
+        background: rgba(255, 255, 255, 0.3); }
+    #work .front_back .prev_next {
       position: relative;
       width: 100%;
-      height: 120px; }
-      #work .front_back .controller .prev_next button {
+      height: 120px;
+      z-index: 70; }
+      #work .front_back .prev_next button {
         position: absolute;
-        top: 0; }
-      #work .front_back .controller .prev_next .prev {
+        top: 95%; }
+      #work .front_back .prev_next .prev {
         left: 20%; }
-      #work .front_back .controller .prev_next .next {
+      #work .front_back .prev_next .next {
         right: 20%; }
     #work .front_back .front {
       -webkit-transform: rotateY(0deg);
@@ -285,30 +287,33 @@ body {
       -ms-transform: rotateY(-180deg);
       -o-transform: rotateY(-180deg);
       transform: rotateY(-180deg); }
-    #work .front_back:hover .front, #work .front_back.flip .front {
+    #work .front_back.flip .front {
       -webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);
       -ms-transform: rotateY(180deg);
       -o-transform: rotateY(180deg);
       transform: rotateY(180deg); }
-    #work .front_back:hover .back, #work .front_back.flip .back {
+    #work .front_back.flip .back {
       -webkit-transform: rotateY(0deg);
       -moz-transform: rotateY(0deg);
       -ms-transform: rotateY(0deg);
       -o-transform: rotateY(0deg);
       transform: rotateY(0deg); }
 
-#modalWork {
+#dim, #modalWork {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 70;
-  display: none; }
+  background: rgba(255, 255, 255, 0.7); }
+
+#modalWork {
+  z-index: 70; }
   #modalWork .modal_wrap {
     margin: 70px 70px;
-    background: #F6CD85; }
+    background: #F6CD85;
+    height: calc(100vh - 140px);
+    overflow: hidden; }
     #modalWork .modal_wrap > ul {
       display: -webkit-box;
       display: -moz-box;
@@ -317,7 +322,7 @@ body {
       display: flex;
       width: 600px;
       margin: 0 auto;
-      padding: 35px 0; }
+      padding: 30px 0; }
       #modalWork .modal_wrap > ul li {
         width: 50%;
         height: 60px;
@@ -326,22 +331,40 @@ body {
         box-sizing: border-box;
         text-align: center;
         font-size: 20px;
-        font-weight: 600; }
+        font-weight: 600;
+        cursor: pointer; }
       #modalWork .modal_wrap > ul li:first-child {
         border-radius: 20px 0 0 20px; }
       #modalWork .modal_wrap > ul li:last-child {
         border-radius: 0 20px 20px 0; }
+      #modalWork .modal_wrap > ul li:first-child.on {
+        background: #fff;
+        color: #707070; }
+      #modalWork .modal_wrap > ul li:last-child.on {
+        background: #fff;
+        color: #222; }
   #modalWork .tabpanel .md_tit {
     position: relative;
-    font-size: 150px;
+    font-size: 200px;
     letter-spacing: 5px;
     line-height: 200px;
     box-sizing: border-box; }
     #modalWork .tabpanel .md_tit img {
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+      -webkit-transform: translate(0, 250px) rotate(-90deg);
+      -moz-transform: translate(0, 250px) rotate(-90deg);
+      -ms-transform: translate(0, 250px) rotate(-90deg);
+      -o-transform: translate(0, 250px) rotate(-90deg);
+      transform: translate(0, 250px) rotate(-90deg);
       position: absolute; }
+  #modalWork .tabpanel ul li a {
+    display: block; }
+    #modalWork .tabpanel ul li a img {
+      max-width: 100%; }
   #modalWork .tabpanel ul li .b {
     display: inline-block;
-    font-size: 4.17vw;
+    font-size: 3.17vw;
     font-weight: 700;
     vertical-align: top; }
   #modalWork .tabpanel ul li p {
@@ -354,68 +377,75 @@ body {
     color: #707070;
     font-size: 18px;
     font-weight: 600; }
-  #modalWork #tabpanel1 {
-    display: none; }
-    #modalWork #tabpanel1 > * {
-      float: left;
-      width: 50%; }
-    #modalWork #tabpanel1 .md_tit {
-      padding: 50px 185px;
-      text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16); }
-      #modalWork #tabpanel1 .md_tit img:nth-of-type(1) {
-        -webkit-transform: rotate(-18deg);
-        -moz-transform: rotate(-18deg);
-        -ms-transform: rotate(-18deg);
-        -o-transform: rotate(-18deg);
-        transform: rotate(-18deg);
-        left: 55%;
-        top: 10%; }
-      #modalWork #tabpanel1 .md_tit img:nth-of-type(2) {
-        -webkit-transform: rotate(16deg);
-        -moz-transform: rotate(16deg);
-        -ms-transform: rotate(16deg);
-        -o-transform: rotate(16deg);
-        transform: rotate(16deg);
-        left: 10%;
-        top: 53%; }
-      #modalWork #tabpanel1 .md_tit img:nth-of-type(3) {
-        -webkit-transform: rotate(13deg);
-        -moz-transform: rotate(13deg);
-        -ms-transform: rotate(13deg);
-        -o-transform: rotate(13deg);
-        transform: rotate(13deg);
-        left: 55%;
-        top: 60%; }
-    #modalWork #tabpanel1 ul li:nth-child(even) .b {
-      color: #707070; }
+@keyframes upDown {
+  0% {
+    transform: translate(0, 100px); }
+  100% {
+    transform: translate(0, 0); } }
+  #modalWork #tabpanel1 > * {
+    float: left;
+    width: 50%; }
+  #modalWork #tabpanel1 .md_tit {
+    padding: 0 75px;
+    text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);
+    text-align: center; }
+    #modalWork #tabpanel1 .md_tit img:nth-of-type(1) {
+      left: 68%;
+      top: 2%; }
+    #modalWork #tabpanel1 .md_tit img:nth-of-type(2) {
+      left: 19%;
+      top: 53%; }
+    #modalWork #tabpanel1 .md_tit img:nth-of-type(3) {
+      left: 67%;
+      top: 60%; }
+  #modalWork #tabpanel1 ul li:nth-child(even) .b {
+    color: #707070; }
+  #modalWork #tabpanel1.on .md_tit img:nth-of-type(1) {
+    -webkit-transform: translate(0, 0) rotate(-18deg);
+    -moz-transform: translate(0, 0) rotate(-18deg);
+    -ms-transform: translate(0, 0) rotate(-18deg);
+    -o-transform: translate(0, 0) rotate(-18deg);
+    transform: translate(0, 0) rotate(-18deg); }
+  #modalWork #tabpanel1.on .md_tit img:nth-of-type(2) {
+    -webkit-transform: translate(0, 0) rotate(16deg);
+    -moz-transform: translate(0, 0) rotate(16deg);
+    -ms-transform: translate(0, 0) rotate(16deg);
+    -o-transform: translate(0, 0) rotate(16deg);
+    transform: translate(0, 0) rotate(16deg); }
+  #modalWork #tabpanel1.on .md_tit img:nth-of-type(3) {
+    -webkit-transform: translate(0, 0) rotate(13deg);
+    -moz-transform: translate(0, 0) rotate(13deg);
+    -ms-transform: translate(0, 0) rotate(13deg);
+    -o-transform: translate(0, 0) rotate(13deg);
+    transform: translate(0, 0) rotate(13deg); }
   #modalWork #tabpanel2 > * {
     float: right;
     width: 50%; }
-  #modalWork #tabpanel2 .md_tit {
+  #modalWork #tabpanel2.on .md_tit {
     padding: 180px 0;
     text-align: center; }
-    #modalWork #tabpanel2 .md_tit img:nth-of-type(1) {
-      -webkit-transform: rotate(-18deg);
-      -moz-transform: rotate(-18deg);
-      -ms-transform: rotate(-18deg);
-      -o-transform: rotate(-18deg);
-      transform: rotate(-18deg);
+    #modalWork #tabpanel2.on .md_tit img:nth-of-type(1) {
+      -webkit-transform: translate(0, 0) rotate(-17deg);
+      -moz-transform: translate(0, 0) rotate(-17deg);
+      -ms-transform: translate(0, 0) rotate(-17deg);
+      -o-transform: translate(0, 0) rotate(-17deg);
+      transform: translate(0, 0) rotate(-17deg);
       left: 45%;
-      top: 5%; }
-    #modalWork #tabpanel2 .md_tit img:nth-of-type(2) {
-      -webkit-transform: rotate(16deg);
-      -moz-transform: rotate(16deg);
-      -ms-transform: rotate(16deg);
-      -o-transform: rotate(16deg);
-      transform: rotate(16deg);
-      left: 0;
+      top: 0%; }
+    #modalWork #tabpanel2.on .md_tit img:nth-of-type(2) {
+      -webkit-transform: translate(0, 0) rotate(16deg);
+      -moz-transform: translate(0, 0) rotate(16deg);
+      -ms-transform: translate(0, 0) rotate(16deg);
+      -o-transform: translate(0, 0) rotate(16deg);
+      transform: translate(0, 0) rotate(16deg);
+      left: 8%;
       top: 60%; }
-    #modalWork #tabpanel2 .md_tit img:nth-of-type(3) {
-      -webkit-transform: rotate(-29deg);
-      -moz-transform: rotate(-29deg);
-      -ms-transform: rotate(-29deg);
-      -o-transform: rotate(-29deg);
-      transform: rotate(-29deg);
+    #modalWork #tabpanel2.on .md_tit img:nth-of-type(3) {
+      -webkit-transform: translate(0, 0) rotate(-29deg);
+      -moz-transform: translate(0, 0) rotate(-29deg);
+      -ms-transform: translate(0, 0) rotate(-29deg);
+      -o-transform: translate(0, 0) rotate(-29deg);
+      transform: translate(0, 0) rotate(-29deg);
       left: 55%;
       top: 81%; }
   #modalWork #tabpanel2 .responsive {
@@ -426,52 +456,57 @@ body {
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-flex;
-      display: flex;
-      margin-bottom: 70px; }
+      display: flex; }
       #modalWork #tabpanel2 .responsive > ul li {
         width: calc(100% / 3);
-        text-align: center;
-        font-size: 35px;
-        font-weight: 600;
-        height: 80px;
+        height: 110px;
+        opacity: 0.7;
+        cursor: pointer;
         vertical-align: bottom;
-        opacity: 0.7; }
+        text-align: center; }
+        #modalWork #tabpanel2 .responsive > ul li h5 {
+          font-size: 20px;
+          font-weight: 600; }
+        #modalWork #tabpanel2 .responsive > ul li:nth-child(3) {
+          padding-top: 10px; }
       #modalWork #tabpanel2 .responsive > ul li.on {
         opacity: 1; }
-      #modalWork #tabpanel2 .responsive > ul span {
+    #modalWork #tabpanel2 .responsive .move_up {
+      text-align: center; }
+      #modalWork #tabpanel2 .responsive .move_up .tabpanelR > p {
+        width: 450px;
+        padding: 65px 0;
+        text-align: left;
+        font-size: 25px; }
+      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a {
         display: block; }
-    #modalWork #tabpanel2 .responsive .move_up .tabpanelR > p {
-      width: 450px;
-      padding: 65px 0;
-      text-align: left;
-      font-size: 25px; }
-    #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a {
-      display: block; }
-      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a img {
-        width: 33.854vw; }
-    #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li:nth-child(even) .b {
-      color: #FFB301; }
-    #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li .b_y {
-      color: #FFB301;
-      font-weight: 600; }
-    #modalWork #tabpanel2 .responsive .move_up #tabpanelM li {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-align-items: flex-end;
-      align-items: flex-end;
-      margin-bottom: 200px; }
-      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a {
-        display: inline-block; }
-        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a img {
-          width: 250px; }
-      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt strong {
-        margin-top: -30px; }
-      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt p {
-        width: 80%;
-        padding: 0; }
+        #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a img {
+          width: 33.854vw; }
+      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li:nth-child(even) .b {
+        color: #FFB301; }
+      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li .b_y {
+        color: #FFB301;
+        font-weight: 600; }
+      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li p {
+        text-align: left; }
+      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+        margin-bottom: 200px; }
+        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a {
+          display: inline-block; }
+          #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a img {
+            width: 250px; }
+        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt strong {
+          margin-top: -30px; }
+        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt p {
+          width: 80%;
+          padding: 0; }
   #modalWork .close_btn {
     position: absolute;
     right: 30px;
@@ -481,12 +516,6 @@ body {
 
 #modalWork .modal_wrap.active {
   background: #222; }
-  #modalWork .modal_wrap.active > ul li:first-child.on {
-    background: #fff;
-    color: #707070; }
-  #modalWork .modal_wrap.active > ul li:last-child.on {
-    background: #fff;
-    color: #222; }
 
 #banner {
   display: none;

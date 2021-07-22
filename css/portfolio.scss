@@ -14,8 +14,6 @@ body{font-family: "noto sans kr";color: #fff;}
 // common class
 .clearfix::after{content: "";display: block;clear: both;}
 
-// #wrap
-#wrap{overflow: hidden;}
 // #header
 #header{
     @include flex;
@@ -39,7 +37,6 @@ body{font-family: "noto sans kr";color: #fff;}
         position: relative;
         .hello_move{
             .hello{
-                @include transform(translateZ(-500px));
                 position: absolute;left: 35%;top: 35%;font-size: 150px;
             }
             .cloud{@include transform(translateZ(500px));}
@@ -71,126 +68,157 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 // about
 #about{
-    position: relative;height: 200vh;background: linear-gradient($wPurple, #AB9CDE);
-    .window, .txt{
-        @include transition(all 1s);
-        position: absolute;left: 0;top: 0; 
-    }
+    position: relative;height: 250vh;background: linear-gradient($wPurple, #AB9CDE);
+    .sticky{position: sticky;top: 0;height: 100vh;}
     .window{
-        @include flex;
-        @include flex-direction;
-        @include align-items;
-        @include translateX-50;
-        width: 700px;left: 50%;z-index: 50;padding: 50px 0;margin: 0 auto;
-        .birds, .angel, .cloud, .open{position: absolute;}
+        @include transition(all 0.5s ease-in-out);
+        position: relative;z-index: 50;text-align: center;width: 100%;height: 100%;background: linear-gradient($wPurple, #AB9CDE);
+        .img_wrap{
+            @include translateX-50;
+            position: absolute;top: 0;left: 50%;width: 700px;
+        }
+        h2{padding: 50px 0;}
+        .birds, .angel, .cloud{position: absolute;}
+        .birds, .cloud{@include transition(all 1s 0.2s);}
         .birds{left: 50%;top: 20%;}
         .cloud{left: -20%;top: 30%;}
         .angel{left: 35%;top: 50%;}
     }
     .txt{
-        color: #707070;box-sizing: border-box;background: rgba(255,255,255,.75);display: none;
+        @include flex;
+        @include justify-content(flex-end);
+        visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);
+        div{width: 50%;padding: 5%;box-sizing: border-box;}
         h2{font-size: 50px;font-weight: 700;margin-bottom: 85px;}
         p{margin-bottom: 55px;}
-        .go_back{position: absolute;right: 50px;bottom: 50px;width: 175px;height: 175px;z-index: 5;}
     }
 }
 #about.on{
     .window{
-        @include transform(translateX(0));
-        left: 0;background: linear-gradient($wPurple, #AB9CDE);
-        .open{display: none;}
+        width: 50%;height: 80vh;
+        .birds{left: 57%;top: 25%;}
+        .cloud{left: -20%;top: 33%;}
     }
-    .txt{width: 100%;height: 100%;padding: 100px 100px 100px 50%;display: block;}
+    .txt{
+        @include transition(all 1s 0.5s);
+        visibility: visible;opacity: 1;
+    }
 }
 // work
 #work{
     background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;padding-top: 300px;box-sizing: border-box;
     .front_back{
-        position: relative;margin: 0 auto;width: 1220px;height: 800px;
+        position: relative;margin: 0 auto;width: 1220px;height: 880px;
         .card{
             @include transition(all 1s);
-            position: absolute;left: 0;top: 0;width: 100%;height: 50%;backface-visibility: hidden;
             @include flex;
             @include flex-direction;
             @include align-items;
-            margin-bottom: -350px;position: relative;z-index: 50;
+            position: absolute;left: 0;top: 0;width: 100%;height: 100%;backface-visibility: hidden;
+            z-index: 50;
             h3{font-size: 60px;}
-            .open{border: 2px solid #fff;border-radius: 15px;padding: 5px 10px;margin-top: 20px;}
+            .open{border: 2px solid #fff;border-radius: 25px;padding: 10px 15px;margin-top: 40px;}
+            .open:hover{background: rgba(255, 255, 255,.3);}
         }
-        .controller{
-            position: relative;width: 100%;height: 120px;
-            .prev_next{
-                button{position: absolute;top: 0;}
-                .prev{left: 20%;}
-                .next{right: 20%;}
-            }
+        .prev_next{
+            position: relative;width: 100%;height: 120px;z-index: 70;
+            button{position: absolute;top: 95%;}
+            .prev{left: 20%;}
+            .next{right: 20%;}
         }
         .front{@include transform(rotateY(0deg));}
         .back{@include transform(rotateY(-180deg));}
-        &:hover .front, &.flip .front{@include transform(rotateY(180deg));}
-        &:hover .back, &.flip .back{@include transform(rotateY(0deg));}
+        &.flip .front{@include transform(rotateY(180deg));}
+        &.flip .back{@include transform(rotateY(0deg));}
     }
 }
 // work 모달 창
+#dim, #modalWork{position: fixed;top: 0;left: 0;width: 100%;background: rgba(255, 255, 255,.7);}
 #modalWork{
-    position: fixed;top: 0;left: 0;width: 100%;background: rgba(255, 255, 255,.7);z-index: 70;display: none;
+    z-index: 70;
     .modal_wrap{
-        margin: 70px 70px;background: #F6CD85;
+        margin: 70px 70px;background: #F6CD85;height: calc(100vh - 140px);overflow: hidden;
         // tablist 와 tab
         > ul{
             @include flex;
-            width: 600px;margin: 0 auto;padding: 35px 0;
-            li{width: 50%;height: 60px;line-height: 54px;border: 3px solid #fff;box-sizing: border-box;text-align: center;font-size: 20px;font-weight: 600;}
+            width: 600px;margin: 0 auto;padding: 30px 0;
+            li{
+                width: 50%;height: 60px;line-height: 54px;border: 3px solid #fff;box-sizing: border-box;text-align: center;font-size: 20px;font-weight: 600;cursor: pointer;
+            }
             li:first-child{border-radius: 20px 0 0 20px;}
             li:last-child{border-radius: 0 20px 20px 0;}
+            li:first-child.on{background: #fff;color: #707070;}
+            li:last-child.on{background: #fff;color: #222;}
         }
     }
     // tabpanel 공통
     .tabpanel{
         .md_tit{
-            position: relative;font-size: 150px;letter-spacing: 5px;line-height: 200px;box-sizing: border-box;
-            img{position: absolute;}
-        }
-        ul li{
-                .b{display: inline-block;font-size: 4.17vw;font-weight: 700;vertical-align: top;}
-                p{display: inline-block;padding: 45px 0 95px;font-size: 18px;line-height: 2;width: 31.25vw;}
-                .bb{color: #707070;font-size: 18px;font-weight: 600;}
+            position: relative;font-size: 200px;letter-spacing: 5px;line-height: 200px;box-sizing: border-box;
+            img{
+                @include transition(all 0.5s);
+                @include transform(translate(0,250px) rotate(-90deg));
+                position: absolute;
             }
+    }
+        ul li{
+            a{
+                display: block;
+                img{max-width: 100%;}
+            }
+            .b{display: inline-block;font-size: 3.17vw;font-weight: 700;vertical-align: top;}
+            p{display: inline-block;padding: 45px 0 95px;font-size: 18px;line-height: 2;width: 31.25vw;}
+            .bb{color: #707070;font-size: 18px;font-weight: 600;}
+        }
+    }
+    // 설화수, 코닥 제품 떠 있는 애니메이션 
+    @keyframes upDown {
+        0%{transform: translate(0, 100px);}
+        100%{transform: translate(0, 0);}
     }
     //설화수
     #tabpanel1{
-        display: none;
             > * {float: left;width: 50%;}
             .md_tit{
-                padding: 50px 185px;text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);
+                padding: 0 75px;text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);text-align: center;
                 //img{@include transition(all 1s);}
-                img:nth-of-type(1){@include transform(rotate(-18deg));left: 55%;top: 10%;}
-                img:nth-of-type(2){@include transform(rotate(16deg));left: 10%;top: 53%;}
-                img:nth-of-type(3){@include transform(rotate(13deg));left: 55%;top: 60%;}
+                img:nth-of-type(1){left: 68%;top: 2%;}
+                img:nth-of-type(2){left: 19%;top: 53%;}
+                img:nth-of-type(3){left: 67%;top: 60%;}
             }
             ul li{
                 &:nth-child(even) .b{color: #707070;}
             }
+            &.on .md_tit{
+                img:nth-of-type(1){@include transform(translate(0,0) rotate(-18deg));}
+                img:nth-of-type(2){@include transform(translate(0,0) rotate(16deg));}
+                img:nth-of-type(3){@include transform(translate(0,0) rotate(13deg));}
+            }                
+
     }
     // 코닥
     #tabpanel2{
             > * {float: right;width: 50%;}
-            .md_tit{
+            &.on .md_tit{
                 padding: 180px 0;text-align: center;
-                img:nth-of-type(1){@include transform(rotate(-18deg));left: 45%;top: 5%;}
-                img:nth-of-type(2){@include transform(rotate(16deg));left: 0;top: 60%;}
-                img:nth-of-type(3){@include transform(rotate(-29deg));left: 55%;top: 81%;}
+                img:nth-of-type(1){@include transform(translate(0,0) rotate(-17deg));left: 45%;top: 0%;}
+                img:nth-of-type(2){@include transform(translate(0,0) rotate(16deg));left: 8%;top: 60%;}
+                img:nth-of-type(3){@include transform(translate(0,0) rotate(-29deg));left: 55%;top: 81%;}
             }
             .responsive{
                 padding: 0 50px;box-sizing: border-box;
                 > ul{
                     @include flex;
-                    margin-bottom: 70px;
-                    li{width: calc(100% / 3);text-align: center;font-size: 35px;font-weight: 600;height: 80px;vertical-align: bottom;opacity: 0.7;}
+                    li{
+                        width: calc(100% / 3);height: 110px;opacity: 0.7;cursor: pointer;vertical-align: bottom;text-align: center;
+                        h5{font-size: 20px;font-weight: 600;}
+                        &:nth-child(3){padding-top: 10px;}
+                    }
                     li.on{opacity: 1;}
-                    span{display: block;}
                 }
                 .move_up{
+                    // tabpanelPC, tabpanelTb, tabpanelM 공통
+                    text-align: center;
                     .tabpanelR{
                         > p{width: 450px;padding: 65px 0;text-align: left;font-size: 25px;}
                         ul li{
@@ -200,6 +228,7 @@ body{font-family: "noto sans kr";color: #fff;}
                             }
                             &:nth-child(even) .b{color: #FFB301;}
                             .b_y{color: #FFB301;font-weight: 600;}
+                            p{text-align: left;}
                         }  
                     }
                     #tabpanelM{
@@ -227,11 +256,6 @@ body{font-family: "noto sans kr";color: #fff;}
 #modalWork{
     .modal_wrap.active{
         background: #222;   
-        > ul {
-            li:first-child.on{background: #fff;color: #707070;}
-            li:last-child.on{background: #fff;color: #222;}
-        }
-    
     }
 }
 
