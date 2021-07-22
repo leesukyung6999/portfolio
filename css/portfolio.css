@@ -175,9 +175,7 @@ body {
     left: 50%;
     z-index: 50;
     padding: 50px 0;
-    margin: 0 auto;
-    position: sticky;
-    height: 100vh; }
+    margin: 0 auto; }
     #about .window .birds, #about .window .angel, #about .window .cloud, #about .window .open {
       position: absolute; }
     #about .window .birds {
@@ -185,10 +183,10 @@ body {
       top: 20%; }
     #about .window .cloud {
       left: -20%;
-      top: 20%; }
+      top: 30%; }
     #about .window .angel {
       left: 35%;
-      top: 38%; }
+      top: 50%; }
   #about .txt {
     color: #707070;
     box-sizing: border-box;
