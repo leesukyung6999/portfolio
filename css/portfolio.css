@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6, p, ul, figure {
+body, h1, h2, h3, h4, h5, h6, p, ul {
   margin: 0;
   padding: 0; }
 
@@ -34,42 +34,6 @@ body {
   content: "";
   display: block;
   clear: both; }
-
-.open {
-  left: 75%;
-  top: 80%;
-  border-radius: 15px;
-  border: 2px solid #fff;
-  padding: 5px 20px;
-  transform-style: preserve-3d;
-  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1);
-  background: #E2C1CD; }
-  .open::before {
-    -webkit-transform: translate3d(0, 15px, -20px);
-    -moz-transform: translate3d(0, 15px, -20px);
-    -ms-transform: translate3d(0, 15px, -20px);
-    -o-transform: translate3d(0, 15px, -20px);
-    transform: translate3d(0, 15px, -20px);
-    content: "";
-    position: absolute;
-    left: -2px;
-    top: -7px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #fff;
-    border-radius: inherit; }
-  .open:hover, .open:focus {
-    -webkit-transform: translate(0, 5px);
-    -moz-transform: translate(0, 5px);
-    -ms-transform: translate(0, 5px);
-    -o-transform: translate(0, 5px);
-    transform: translate(0, 5px); }
-    .open:hover::before, .open:focus::before {
-      -webkit-transform: translate3d(0, 12px, -20px);
-      -moz-transform: translate3d(0, 12px, -20px);
-      -ms-transform: translate3d(0, 12px, -20px);
-      -o-transform: translate3d(0, 12px, -20px);
-      transform: translate3d(0, 12px, -20px); }
 
 #wrap {
   overflow: hidden; }
@@ -110,44 +74,80 @@ body {
   background-repeat: no-repeat;
   background-position: 100% 0; }
   #intro .intro {
-    padding-top: 100px;
+    position: relative;
+    padding-top: 200px; }
+    #intro .intro .balloon {
+      position: absolute; }
+  #intro .intro_top {
     position: relative; }
-    #intro .intro h2 {
-      font-size: 150px;
+    #intro .intro_top .hello_move .hello {
+      -webkit-transform: translateZ(-500px);
+      -moz-transform: translateZ(-500px);
+      -ms-transform: translateZ(-500px);
+      -o-transform: translateZ(-500px);
+      transform: translateZ(-500px);
       position: absolute;
-      left: 250px;
-      top: 250px;
-      opacity: 0.3; }
-    #intro .intro .cloud {
-      -webkit-transform: translateZ(0);
-      -moz-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      -o-transform: translateZ(0);
-      transform: translateZ(0); }
-    #intro .intro .balloons {
-      display: inline-block; }
-      #intro .intro .balloons img:first-child {
-        -webkit-transform: translateZ(-250px);
-        -moz-transform: translateZ(-250px);
-        -ms-transform: translateZ(-250px);
-        -o-transform: translateZ(-250px);
-        transform: translateZ(-250px); }
-      #intro .intro .balloons img:last-child {
-        -webkit-transform: translateZ(250px);
-        -moz-transform: translateZ(250px);
-        -ms-transform: translateZ(250px);
-        -o-transform: translateZ(250px);
-        transform: translateZ(250px); }
-      #intro .intro .balloons .balloon {
-        margin-right: 100px; }
+      left: 35%;
+      top: 35%;
+      font-size: 150px; }
+    #intro .intro_top .hello_move .cloud {
+      -webkit-transform: translateZ(500px);
+      -moz-transform: translateZ(500px);
+      -ms-transform: translateZ(500px);
+      -o-transform: translateZ(500px);
+      transform: translateZ(500px); }
+    #intro .intro_top .balloon:nth-of-type(1) {
+      left: 58%;
+      top: 0%; }
+    #intro .intro_top .balloon:nth-of-type(2) {
+      left: 78%;
+      top: 15%; }
   #intro .intro_btm {
-    text-align: right; }
-    #intro .intro_btm .balloons {
-      margin-top: -200px; }
+    text-align: right;
+    height: 500px; }
+    #intro .intro_btm .balloon:nth-of-type(1) {
+      left: 0%;
+      top: -6%; }
+    #intro .intro_btm .balloon:nth-of-type(2) {
+      left: 40%;
+      top: 0%; }
+
+#intro .intro h2, #intro .intro .balloon {
+  -webkit-transition: all 2s cubic-bezier(0, 0.71, 0.12, 1);
+  transition: all 2s cubic-bezier(0, 0.71, 0.12, 1);
+  opacity: 0; }
+#intro .intro h2 {
+  -webkit-transform: translate(-10.416vw, 0);
+  -moz-transform: translate(-10.416vw, 0);
+  -ms-transform: translate(-10.416vw, 0);
+  -o-transform: translate(-10.416vw, 0);
+  transform: translate(-10.416vw, 0);
+  transition-delay: 0.9s; }
+#intro .intro .balloon {
+  -webkit-transform: translate(0, 10.416vw);
+  -moz-transform: translate(0, 10.416vw);
+  -ms-transform: translate(0, 10.416vw);
+  -o-transform: translate(0, 10.416vw);
+  transform: translate(0, 10.416vw); }
+#intro .intro_top .balloon:first-child {
+  transition-delay: 0.3s; }
+#intro .intro_top .balloon:last-child {
+  transition-delay: 0.6s; }
+#intro .intro_btm .balloon:first-child {
+  transition-delay: 0.3s; }
+#intro .intro_btm .balloon:last-child {
+  transition-delay: 0.6s; }
+#intro .intro.fade h2, #intro .intro.fade .cloud, #intro .intro.fade .balloon {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  opacity: 1; }
 
 #about {
   position: relative;
-  height: 100vh;
+  height: 200vh;
   background: linear-gradient(#E2C1CD, #AB9CDE); }
   #about .window, #about .txt {
     -webkit-transition: all 1s;
@@ -175,7 +175,9 @@ body {
     left: 50%;
     z-index: 50;
     padding: 50px 0;
-    margin: 0 auto; }
+    margin: 0 auto;
+    position: sticky;
+    height: 100vh; }
     #about .window .birds, #about .window .angel, #about .window .cloud, #about .window .open {
       position: absolute; }
     #about .window .birds {
@@ -183,10 +185,10 @@ body {
       top: 20%; }
     #about .window .cloud {
       left: -20%;
-      top: 35%; }
+      top: 20%; }
     #about .window .angel {
       left: 35%;
-      top: 50%; }
+      top: 38%; }
   #about .txt {
     color: #707070;
     box-sizing: border-box;
@@ -206,11 +208,6 @@ body {
       height: 175px;
       z-index: 5; }
 
-#about.on .txt {
-  width: 100%;
-  height: 100%;
-  padding: 100px 100px 100px 50%;
-  display: block; }
 #about.on .window {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
@@ -221,61 +218,63 @@ body {
   background: linear-gradient(#E2C1CD, #AB9CDE); }
   #about.on .window .open {
     display: none; }
+#about.on .txt {
+  width: 100%;
+  height: 100%;
+  padding: 100px 100px 100px 50%;
+  display: block; }
 
 #work {
   background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);
   background-repeat: no-repeat;
   background-position: 0 100%;
-  padding-top: 200px;
+  padding-top: 300px;
   box-sizing: border-box; }
   #work .front_back {
     position: relative;
     margin: 0 auto;
     width: 1220px;
-    height: 1300px; }
-    #work .front_back > div {
+    height: 800px; }
+    #work .front_back .card {
       -webkit-transition: all 1s;
       transition: all 1s;
       position: absolute;
       left: 0;
       top: 0;
       width: 100%;
-      height: 100%;
-      backface-visibility: hidden; }
-      #work .front_back > div .moon_top {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: column;
-        -moz-flex-direction: column;
-        flex-direction: column;
-        -webkit-align-items: center;
-        align-items: center;
-        margin-bottom: -350px;
-        position: relative;
-        z-index: 50; }
-        #work .front_back > div .moon_top .best {
-          height: 400px; }
-        #work .front_back > div .moon_top h3 {
-          font-size: 60px; }
-        #work .front_back > div .moon_top .prev_next {
-          position: absolute;
-          left: 0;
-          top: 28%;
-          width: 100%;
-          height: 64px; }
-          #work .front_back > div .moon_top .prev_next button {
-            position: absolute;
-            top: 0; }
-          #work .front_back > div .moon_top .prev_next .prev {
-            left: 20%; }
-          #work .front_back > div .moon_top .prev_next .next {
-            right: 20%; }
-      #work .front_back > div .moon {
-        width: 1000px;
-        padding: 0 110px; }
+      height: 50%;
+      backface-visibility: hidden;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      align-items: center;
+      margin-bottom: -350px;
+      position: relative;
+      z-index: 50; }
+      #work .front_back .card h3 {
+        font-size: 60px; }
+      #work .front_back .card .open {
+        border: 2px solid #fff;
+        border-radius: 15px;
+        padding: 5px 10px;
+        margin-top: 20px; }
+    #work .front_back .controller {
+      position: relative;
+      width: 100%;
+      height: 120px; }
+      #work .front_back .controller .prev_next button {
+        position: absolute;
+        top: 0; }
+      #work .front_back .controller .prev_next .prev {
+        left: 20%; }
+      #work .front_back .controller .prev_next .next {
+        right: 20%; }
     #work .front_back .front {
       -webkit-transform: rotateY(0deg);
       -moz-transform: rotateY(0deg);
@@ -288,8 +287,6 @@ body {
       -ms-transform: rotateY(-180deg);
       -o-transform: rotateY(-180deg);
       transform: rotateY(-180deg); }
-      #work .front_back .back .best img {
-        padding: 100px 0; }
     #work .front_back:hover .front, #work .front_back.flip .front {
       -webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);
@@ -304,12 +301,15 @@ body {
       transform: rotateY(0deg); }
 
 #modalWork {
-  /* position: fixed;top: 0;left: 0; */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   background: rgba(255, 255, 255, 0.7);
-  z-index: 70; }
+  z-index: 70;
+  display: none; }
   #modalWork .modal_wrap {
-    margin: 100px 150px;
+    margin: 70px 70px;
     background: #F6CD85; }
     #modalWork .modal_wrap > ul {
       display: -webkit-box;
@@ -317,85 +317,178 @@ body {
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
-      width: 700px;
+      width: 600px;
       margin: 0 auto;
       padding: 35px 0; }
       #modalWork .modal_wrap > ul li {
         width: 50%;
-        height: 80px;
-        line-height: 70px;
-        border: 5px solid #fff;
+        height: 60px;
+        line-height: 54px;
+        border: 3px solid #fff;
         box-sizing: border-box;
         text-align: center;
-        font-size: 25px;
-        font-weight: 700; }
+        font-size: 20px;
+        font-weight: 600; }
       #modalWork .modal_wrap > ul li:first-child {
         border-radius: 20px 0 0 20px; }
       #modalWork .modal_wrap > ul li:last-child {
         border-radius: 0 20px 20px 0; }
-      #modalWork .modal_wrap > ul li.on {
-        background: #fff;
-        color: #707070; }
-  #modalWork .tabpanel .sticky > * {
-    width: 50%;
-    height: 100%; }
-  #modalWork .tabpanel .sticky .md_tit {
+  #modalWork .tabpanel .md_tit {
     position: relative;
-    font-size: 200px;
+    font-size: 150px;
     letter-spacing: 5px;
     line-height: 200px;
-    padding: 50px 185px;
-    box-sizing: border-box;
-    text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16); }
-    #modalWork .tabpanel .sticky .md_tit img {
+    box-sizing: border-box; }
+    #modalWork .tabpanel .md_tit img {
       position: absolute; }
-  #modalWork .tabpanel .sticky ul li figcaption .b {
-    font-size: 80px;
-    font-weight: 700; }
-  #modalWork .tabpanel .sticky ul li figcaption p {
+  #modalWork .tabpanel ul li .b {
     display: inline-block;
-    padding: 95px 0;
-    font-size: 18px; }
-  #modalWork .tabpanel .sticky ul li figcaption .bb {
+    font-size: 4.17vw;
+    font-weight: 700;
+    vertical-align: top; }
+  #modalWork .tabpanel ul li p {
+    display: inline-block;
+    padding: 45px 0 95px;
+    font-size: 18px;
+    line-height: 2;
+    width: 31.25vw; }
+  #modalWork .tabpanel ul li .bb {
     color: #707070;
     font-size: 18px;
     font-weight: 600; }
-  #modalWork #tabpanel1 .sticky > * {
-    float: left; }
-  #modalWork #tabpanel1 .sticky .md_tit img:nth-of-type(1) {
-    -webkit-transform: rotate(-18deg);
-    -moz-transform: rotate(-18deg);
-    -ms-transform: rotate(-18deg);
-    -o-transform: rotate(-18deg);
-    transform: rotate(-18deg);
-    left: 55%;
-    top: 10%; }
-  #modalWork #tabpanel1 .sticky .md_tit img:nth-of-type(2) {
-    -webkit-transform: rotate(16deg);
-    -moz-transform: rotate(16deg);
-    -ms-transform: rotate(16deg);
-    -o-transform: rotate(16deg);
-    transform: rotate(16deg);
-    left: 10%;
-    top: 53%; }
-  #modalWork #tabpanel1 .sticky .md_tit img:nth-of-type(3) {
-    -webkit-transform: rotate(13deg);
-    -moz-transform: rotate(13deg);
-    -ms-transform: rotate(13deg);
-    -o-transform: rotate(13deg);
-    transform: rotate(13deg);
-    left: 55%;
-    top: 60%; }
-  #modalWork #tabpanel2 {
+  #modalWork #tabpanel1 {
     display: none; }
-    #modalWork #tabpanel2 .sticky > * {
-      float: right; }
+    #modalWork #tabpanel1 > * {
+      float: left;
+      width: 50%; }
+    #modalWork #tabpanel1 .md_tit {
+      padding: 50px 185px;
+      text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16); }
+      #modalWork #tabpanel1 .md_tit img:nth-of-type(1) {
+        -webkit-transform: rotate(-18deg);
+        -moz-transform: rotate(-18deg);
+        -ms-transform: rotate(-18deg);
+        -o-transform: rotate(-18deg);
+        transform: rotate(-18deg);
+        left: 55%;
+        top: 10%; }
+      #modalWork #tabpanel1 .md_tit img:nth-of-type(2) {
+        -webkit-transform: rotate(16deg);
+        -moz-transform: rotate(16deg);
+        -ms-transform: rotate(16deg);
+        -o-transform: rotate(16deg);
+        transform: rotate(16deg);
+        left: 10%;
+        top: 53%; }
+      #modalWork #tabpanel1 .md_tit img:nth-of-type(3) {
+        -webkit-transform: rotate(13deg);
+        -moz-transform: rotate(13deg);
+        -ms-transform: rotate(13deg);
+        -o-transform: rotate(13deg);
+        transform: rotate(13deg);
+        left: 55%;
+        top: 60%; }
+    #modalWork #tabpanel1 ul li:nth-child(even) .b {
+      color: #707070; }
+  #modalWork #tabpanel2 > * {
+    float: right;
+    width: 50%; }
+  #modalWork #tabpanel2 .md_tit {
+    padding: 180px 0;
+    text-align: center; }
+    #modalWork #tabpanel2 .md_tit img:nth-of-type(1) {
+      -webkit-transform: rotate(-18deg);
+      -moz-transform: rotate(-18deg);
+      -ms-transform: rotate(-18deg);
+      -o-transform: rotate(-18deg);
+      transform: rotate(-18deg);
+      left: 45%;
+      top: 5%; }
+    #modalWork #tabpanel2 .md_tit img:nth-of-type(2) {
+      -webkit-transform: rotate(16deg);
+      -moz-transform: rotate(16deg);
+      -ms-transform: rotate(16deg);
+      -o-transform: rotate(16deg);
+      transform: rotate(16deg);
+      left: 0;
+      top: 60%; }
+    #modalWork #tabpanel2 .md_tit img:nth-of-type(3) {
+      -webkit-transform: rotate(-29deg);
+      -moz-transform: rotate(-29deg);
+      -ms-transform: rotate(-29deg);
+      -o-transform: rotate(-29deg);
+      transform: rotate(-29deg);
+      left: 55%;
+      top: 81%; }
+  #modalWork #tabpanel2 .responsive {
+    padding: 0 50px;
+    box-sizing: border-box; }
+    #modalWork #tabpanel2 .responsive > ul {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      margin-bottom: 70px; }
+      #modalWork #tabpanel2 .responsive > ul li {
+        width: calc(100% / 3);
+        text-align: center;
+        font-size: 35px;
+        font-weight: 600;
+        height: 80px;
+        vertical-align: bottom;
+        opacity: 0.7; }
+      #modalWork #tabpanel2 .responsive > ul li.on {
+        opacity: 1; }
+      #modalWork #tabpanel2 .responsive > ul span {
+        display: block; }
+    #modalWork #tabpanel2 .responsive .move_up .tabpanelR > p {
+      width: 450px;
+      padding: 65px 0;
+      text-align: left;
+      font-size: 25px; }
+    #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a {
+      display: block; }
+      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a img {
+        width: 33.854vw; }
+    #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li:nth-child(even) .b {
+      color: #FFB301; }
+    #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li .b_y {
+      color: #FFB301;
+      font-weight: 600; }
+    #modalWork #tabpanel2 .responsive .move_up #tabpanelM li {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      margin-bottom: 200px; }
+      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a {
+        display: inline-block; }
+        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a img {
+          width: 250px; }
+      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt strong {
+        margin-top: -30px; }
+      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt p {
+        width: 80%;
+        padding: 0; }
   #modalWork .close_btn {
     position: absolute;
-    right: 70px;
-    top: 50px;
+    right: 30px;
+    top: 30px;
     width: 31px;
     height: 31px; }
+
+#modalWork .modal_wrap.active {
+  background: #222; }
+  #modalWork .modal_wrap.active > ul li:first-child.on {
+    background: #fff;
+    color: #707070; }
+  #modalWork .modal_wrap.active > ul li:last-child.on {
+    background: #fff;
+    color: #222; }
 
 #banner {
   display: none;

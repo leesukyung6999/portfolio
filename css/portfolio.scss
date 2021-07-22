@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import "_mixin", "_var";
 
-body, h1, h2, h3, h4, h5, h6, p, ul,figure{margin: 0;padding: 0;}
+body, h1, h2, h3, h4, h5, h6, p, ul{margin: 0;padding: 0;}
 h1, h2, h3, h4, h5, h6{font-size: 100%;}
 ul{list-style: none;}
 a:link, a:visited, a:hover, a:active{text-decoration: none;color: inherit;}
@@ -13,21 +13,6 @@ body{font-family: "noto sans kr";color: #fff;}
 
 // common class
 .clearfix::after{content: "";display: block;clear: both;}
-
-// button 공통
-.open{
-    left: 75%;top: 80%;border-radius: 15px;border: 2px solid #fff;padding: 5px 20px;transform-style: preserve-3d;transition: transform 150ms cubic-bezier(0, 0, 0.58, 1);background: $wPurple;
-    &::before{
-        @include transform(translate3d(0, 15px, -20px));
-        content: "";position: absolute;left: -2px;top: -7px;width: 100%;height: 100%;border: 2px solid #fff;border-radius: inherit;
-    }
-    &:hover, &:focus{
-        @include transform(translate(0,5px));
-        &::before{
-            @include transform(translate3d(0,12px, -20px))
-        }
-    }
-}
 
 // #wrap
 #wrap{overflow: hidden;}
@@ -47,25 +32,46 @@ body{font-family: "noto sans kr";color: #fff;}
 #intro{
     background-image: url("../images/1_rainbow.png") , linear-gradient($pink,$wPurple);background-repeat: no-repeat;background-position: 100% 0;
     .intro{
-        padding-top: 100px;position: relative;
-        h2{font-size: 150px;position: absolute;left: 250px;top: 250px;opacity: 0.3;}
-        .cloud{@include transform(translateZ(0));}
-        .balloons{
-            display: inline-block;
-            img:first-child{@include transform(translateZ(-250px));}
-            img:last-child{@include transform(translateZ(250px));}
-            .balloon{margin-right: 100px;}
+        position: relative;padding-top: 200px;
+        .balloon{position: absolute;}
+    }
+    .intro_top{
+        position: relative;
+        .hello_move{
+            .hello{
+                @include transform(translateZ(-500px));
+                position: absolute;left: 35%;top: 35%;font-size: 150px;
+            }
+            .cloud{@include transform(translateZ(500px));}
+        }
+        .balloon{
+            &:nth-of-type(1){left: 58%;top: 0%;}
+            &:nth-of-type(2){left: 78%;top: 15%;}
         }
     }
     .intro_btm{
-        text-align: right;
-        .balloons{margin-top: -200px;}
+        text-align: right;height: 500px;
+        .balloon{
+            &:nth-of-type(1){left: 0%;top: -6%;}
+            &:nth-of-type(2){left: 40%;top: 0%;}
+        }
     }
 }
+// intro 효과
+#intro{
+    .intro h2, .intro .balloon{@include transition(all 2s cubic-bezier(0, 0.71, 0.12, 1));opacity: 0;}
+    .intro h2{@include transform(translate(-10.416vw, 0));transition-delay: 0.9s;}
+    .intro .balloon{@include transform(translate(0, 10.416vw));}
+    .intro_top .balloon:first-child{transition-delay: 0.3s;}
+    .intro_top .balloon:last-child{transition-delay: 0.6s;}
+    .intro_btm .balloon:first-child{transition-delay: 0.3s;}
+    .intro_btm .balloon:last-child{transition-delay: 0.6s;}
 
+    .intro.fade h2, .intro.fade .cloud, .intro.fade .balloon{@include transform(translate(0, 0));opacity: 1;}
+}
 // about
 #about{
-    position: relative;height: 100vh;background: linear-gradient($wPurple, #AB9CDE);
+    position: relative;height: 200vh;background: linear-gradient($wPurple, #AB9CDE);
     .window, .txt{
         @include transition(all 1s);
         position: absolute;left: 0;top: 0; 
@@ -75,11 +81,11 @@ body{font-family: "noto sans kr";color: #fff;}
         @include flex-direction;
         @include align-items;
         @include translateX-50;
-        width: 700px;left: 50%;z-index: 50;padding: 50px 0;margin: 0 auto;
+        width: 700px;left: 50%;z-index: 50;padding: 50px 0;margin: 0 auto;position: sticky;height: 100vh;
         .birds, .angel, .cloud, .open{position: absolute;}
         .birds{left: 50%;top: 20%;}
-        .cloud{left: -20%;top: 35%;}
-        .angel{left: 35%;top: 50%;}
+        .cloud{left: -20%;top: 20%;}
+        .angel{left: 35%;top: 38%;}
     }
     .txt{
         color: #707070;box-sizing: border-box;background: rgba(255,255,255,.75);display: none;
@@ -89,98 +95,146 @@ body{font-family: "noto sans kr";color: #fff;}
     }
 }
 #about.on{
-    .txt{width: 100%;height: 100%;padding: 100px 100px 100px 50%;display: block;}
     .window{
         @include transform(translateX(0));
         left: 0;background: linear-gradient($wPurple, #AB9CDE);
         .open{display: none;}
     }
+    .txt{width: 100%;height: 100%;padding: 100px 100px 100px 50%;display: block;}
 }
 // work
 #work{
-    background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;padding-top: 200px;box-sizing: border-box;
+    background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;padding-top: 300px;box-sizing: border-box;
     .front_back{
-        position: relative;margin: 0 auto;width: 1220px;height: 1300px;
-        > div{
+        position: relative;margin: 0 auto;width: 1220px;height: 800px;
+        .card{
             @include transition(all 1s);
-            position: absolute;left: 0;top: 0;width: 100%;height: 100%;backface-visibility: hidden;
-            .moon_top{
-                @include flex;
-                @include flex-direction;
-                @include align-items;
-                margin-bottom: -350px;position: relative;z-index: 50;
-                .best{height: 400px;}
-                h3{font-size: 60px;}
-                .prev_next{
-                    position: absolute;left: 0;top: 28%;width: 100%;height: 64px;
-                    button{position: absolute;top: 0;}
-                    .prev{left: 20%;}
-                    .next{right: 20%;}
-                }
+            position: absolute;left: 0;top: 0;width: 100%;height: 50%;backface-visibility: hidden;
+            @include flex;
+            @include flex-direction;
+            @include align-items;
+            margin-bottom: -350px;position: relative;z-index: 50;
+            h3{font-size: 60px;}
+            .open{border: 2px solid #fff;border-radius: 15px;padding: 5px 10px;margin-top: 20px;}
+        }
+        .controller{
+            position: relative;width: 100%;height: 120px;
+            .prev_next{
+                button{position: absolute;top: 0;}
+                .prev{left: 20%;}
+                .next{right: 20%;}
             }
-            .moon{width: 1000px;padding: 0 110px;}
         }
         .front{@include transform(rotateY(0deg));}
-        .back{
-            @include transform(rotateY(-180deg));
-            .best img{padding: 100px 0;}
-        }
+        .back{@include transform(rotateY(-180deg));}
         &:hover .front, &.flip .front{@include transform(rotateY(180deg));}
         &:hover .back, &.flip .back{@include transform(rotateY(0deg));}
     }
 }
+// work 모달 창
 #modalWork{
-    /* position: fixed;top: 0;left: 0; */width: 100%;background: rgba(255, 255, 255,.7);z-index: 70;
+    position: fixed;top: 0;left: 0;width: 100%;background: rgba(255, 255, 255,.7);z-index: 70;display: none;
     .modal_wrap{
-        margin: 100px 150px;background: #F6CD85;
+        margin: 70px 70px;background: #F6CD85;
+        // tablist 와 tab
         > ul{
             @include flex;
-            width: 700px;margin: 0 auto;padding: 35px 0;
-            li{width: 50%;height: 80px;line-height: 70px;border: 5px solid #fff;box-sizing: border-box;text-align: center;font-size: 25px;font-weight: 700;}
+            width: 600px;margin: 0 auto;padding: 35px 0;
+            li{width: 50%;height: 60px;line-height: 54px;border: 3px solid #fff;box-sizing: border-box;text-align: center;font-size: 20px;font-weight: 600;}
             li:first-child{border-radius: 20px 0 0 20px;}
             li:last-child{border-radius: 0 20px 20px 0;}
-            li.on{background: #fff;color: #707070;}
         }
     }
+    // tabpanel 공통
     .tabpanel{
-        .sticky{
-            
-            > *{width: 50%;height: 100%;}
-            .md_tit{
-                position: relative;font-size: 200px;letter-spacing: 5px;line-height: 200px;padding: 50px 185px;box-sizing: border-box;
-                text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);
-                img{position: absolute;}
-            }
-            ul li figcaption{
-                .b{font-size: 80px;font-weight: 700;}
-                p{display: inline-block;padding: 95px 0;font-size: 18px;}
+        .md_tit{
+            position: relative;font-size: 150px;letter-spacing: 5px;line-height: 200px;box-sizing: border-box;
+            img{position: absolute;}
+        }
+        ul li{
+                .b{display: inline-block;font-size: 4.17vw;font-weight: 700;vertical-align: top;}
+                p{display: inline-block;padding: 45px 0 95px;font-size: 18px;line-height: 2;width: 31.25vw;}
                 .bb{color: #707070;font-size: 18px;font-weight: 600;}
             }
-
-        }
     }
+    //설화수
     #tabpanel1{
-        
-        .sticky{
-            > * {float: left;}
+        display: none;
+            > * {float: left;width: 50%;}
             .md_tit{
+                padding: 50px 185px;text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);
+                //img{@include transition(all 1s);}
                 img:nth-of-type(1){@include transform(rotate(-18deg));left: 55%;top: 10%;}
                 img:nth-of-type(2){@include transform(rotate(16deg));left: 10%;top: 53%;}
                 img:nth-of-type(3){@include transform(rotate(13deg));left: 55%;top: 60%;}
             }
-        }
+            ul li{
+                &:nth-child(even) .b{color: #707070;}
+            }
     }
+    // 코닥
     #tabpanel2{
-        display: none;
-        .sticky{
-            > * {float: right;}
-        }
+            > * {float: right;width: 50%;}
+            .md_tit{
+                padding: 180px 0;text-align: center;
+                img:nth-of-type(1){@include transform(rotate(-18deg));left: 45%;top: 5%;}
+                img:nth-of-type(2){@include transform(rotate(16deg));left: 0;top: 60%;}
+                img:nth-of-type(3){@include transform(rotate(-29deg));left: 55%;top: 81%;}
+            }
+            .responsive{
+                padding: 0 50px;box-sizing: border-box;
+                > ul{
+                    @include flex;
+                    margin-bottom: 70px;
+                    li{width: calc(100% / 3);text-align: center;font-size: 35px;font-weight: 600;height: 80px;vertical-align: bottom;opacity: 0.7;}
+                    li.on{opacity: 1;}
+                    span{display: block;}
+                }
+                .move_up{
+                    .tabpanelR{
+                        > p{width: 450px;padding: 65px 0;text-align: left;font-size: 25px;}
+                        ul li{
+                            a{
+                                display: block;
+                                img{width: 33.854vw;}
+                            }
+                            &:nth-child(even) .b{color: #FFB301;}
+                            .b_y{color: #FFB301;font-weight: 600;}
+                        }  
+                    }
+                    #tabpanelM{
+                        li{
+                            @include flex;
+                            @include align-items(flex-end);
+                            margin-bottom: 200px;
+                            a{
+                                display: inline-block;
+                                img{width: 250px;}
+                            }
+                            .m_txt{
+                                strong{margin-top: -30px;}
+                                p{width: 80%;padding: 0;}
+                            }
+                        }
+                    }
+                                           
+                 }  
+            }
     }
-
-    .close_btn{position: absolute;right: 70px;top: 50px;width: 31px;height: 31px;}
+    .close_btn{position: absolute;right: 30px;top: 30px;width: 31px;height: 31px;}
+}
+// tab이 .active를 가지는 경우
+#modalWork{
+    .modal_wrap.active{
+        background: #222;   
+        > ul {
+            li:first-child.on{background: #fff;color: #707070;}
+            li:last-child.on{background: #fff;color: #222;}
+        }
+    
+    }
 }
 
-// skill
 // contact
 // aside#banner > nav#snb
 #banner{

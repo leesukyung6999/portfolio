@@ -25,7 +25,64 @@ body{font-family: "noto sans kr";color: #fff;}
         li{margin-right: 84px;font-size: 20px;font-weight: 700;}
     }
 }
+    .intro{
+        padding-top: 100px;
+        span{display: inline-block;}
+    }
+    .intro_top{
+        h2{position: absolute;left: 35%;top: 30%;font-size: 150px;font-weight: 600;}
+        .balloons{
+            margin: 200px 100px;
+            .balloon:nth-of-type(2){position: absolute;left: 82%;top: 10%;}
+        }
+    }
+    .intro_btm{
+        text-align: right;
+        .balloons{
+            margin-right: 300px;
+            .balloon:nth-of-type(1){position: absolute;left: 0%;top: 65%;}
+        }
+    }
+
+#intro{
+    background-image: url("../images/1_rainbow.png") , linear-gradient($pink,$wPurple);background-repeat: no-repeat;background-position: 100% 0;
+    .intro_top{
+        h2{position: absolute;left: 45%;top: 20%;font-size: 150px;font-weight: 600;}
+        .balloons{
+            position: absolute;top: 30%;right: 0;
+            .balloon{margin-left: 50px;}
+        }
+    }
+    .intro_btm{
+        text-align: right;margin-top: 200px;
+        .balloon{margin-right: 50px;}
+    }
+}
+// intro 효과
+#intro{
+    .intro h2, .intro .cloud, .intro .balloons .balloon{@include transition(all 2s cubic-bezier(0, 0.71, 0.12, 1));opacity: 0;}
+    .intro h2{@include transform(translate(-10.416vw, 0));transition-delay: 0.6s;}
+    .intro .cloud{@include transform(translate(0, 5.21vw));transition-delay: 0.3s;}
+    .intro .balloons .balloon:first-child{@include transform(translate(0, 10.416vw));transition-delay: 0.9s;}
+    .intro .balloons .balloon:last-child{@include transform(translate(0, 10.416vw));transition-delay: 1.2s;}
+
+    .intro.fade h2, .intro.fade .cloud, .intro.fade .balloons .balloon{opacity: 1;@include transform(translate(0, 0))}
+
+}-----------------------> 효과준거까지
 // intro
+    .intro{
+        padding-top: 100px;position: relative;
+        h2{font-size: 150px;position: absolute;left: 250px;top: 250px;opacity: 0.3;}
+        .balloons{
+            display: inline-block;width: 60%;
+            .balloon{margin-right: 50px;}
+        }
+    }
+    .intro_btm{
+        text-align: right;
+        .balloons{margin-top: -200px;}
+    }
+
 #intro{
     position: relative;background: linear-gradient($pink, $wPurple);
     #introTop{
