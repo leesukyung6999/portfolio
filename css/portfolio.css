@@ -230,6 +230,11 @@ body {
   padding-top: 300px;
   box-sizing: border-box; }
   #work .front_back {
+    -webkit-transform: perspective(0);
+    -moz-transform: perspective(0);
+    -ms-transform: perspective(0);
+    -o-transform: perspective(0);
+    transform: perspective(0);
     position: relative;
     margin: 0 auto;
     width: 1220px;
@@ -322,7 +327,8 @@ body {
       display: flex;
       width: 600px;
       margin: 0 auto;
-      padding: 30px 0; }
+      padding: 30px 0;
+      z-index: 50; }
       #modalWork .modal_wrap > ul li {
         width: 50%;
         height: 60px;
@@ -348,7 +354,8 @@ body {
     font-size: 200px;
     letter-spacing: 5px;
     line-height: 200px;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    text-align: center; }
     #modalWork .tabpanel .md_tit img {
       -webkit-transition: all 0.5s;
       transition: all 0.5s;
@@ -358,25 +365,29 @@ body {
       -o-transform: translate(0, 250px) rotate(-90deg);
       transform: translate(0, 250px) rotate(-90deg);
       position: absolute; }
-  #modalWork .tabpanel ul li a {
-    display: block; }
-    #modalWork .tabpanel ul li a img {
-      max-width: 100%; }
-  #modalWork .tabpanel ul li .b {
-    display: inline-block;
-    font-size: 3.17vw;
-    font-weight: 700;
-    vertical-align: top; }
-  #modalWork .tabpanel ul li p {
-    display: inline-block;
-    padding: 45px 0 95px;
-    font-size: 18px;
-    line-height: 2;
-    width: 31.25vw; }
-  #modalWork .tabpanel ul li .bb {
-    color: #707070;
-    font-size: 18px;
-    font-weight: 600; }
+  #modalWork .tabpanel .move_up {
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: hidden; }
+    #modalWork .tabpanel .move_up ul li a {
+      display: block; }
+      #modalWork .tabpanel .move_up ul li a img {
+        max-width: 100%; }
+    #modalWork .tabpanel .move_up ul li .b {
+      display: inline-block;
+      font-size: 3.17vw;
+      font-weight: 700;
+      vertical-align: top; }
+    #modalWork .tabpanel .move_up ul li p {
+      display: inline-block;
+      padding: 50px 0;
+      font-size: 18px;
+      line-height: 2;
+      width: 31.25vw; }
+    #modalWork .tabpanel .move_up ul li .bb {
+      color: #707070;
+      font-size: 18px;
+      font-weight: 600; }
 @keyframes upDown {
   0% {
     transform: translate(0, 100px); }
@@ -387,43 +398,42 @@ body {
     width: 50%; }
   #modalWork #tabpanel1 .md_tit {
     padding: 0 75px;
-    text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);
-    text-align: center; }
-    #modalWork #tabpanel1 .md_tit img:nth-of-type(1) {
-      left: 68%;
-      top: 2%; }
-    #modalWork #tabpanel1 .md_tit img:nth-of-type(2) {
-      left: 19%;
-      top: 53%; }
-    #modalWork #tabpanel1 .md_tit img:nth-of-type(3) {
-      left: 67%;
-      top: 60%; }
-  #modalWork #tabpanel1 ul li:nth-child(even) .b {
-    color: #707070; }
+    text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16); }
   #modalWork #tabpanel1.on .md_tit img:nth-of-type(1) {
     -webkit-transform: translate(0, 0) rotate(-18deg);
     -moz-transform: translate(0, 0) rotate(-18deg);
     -ms-transform: translate(0, 0) rotate(-18deg);
     -o-transform: translate(0, 0) rotate(-18deg);
-    transform: translate(0, 0) rotate(-18deg); }
+    transform: translate(0, 0) rotate(-18deg);
+    left: 68%;
+    top: 2%; }
   #modalWork #tabpanel1.on .md_tit img:nth-of-type(2) {
     -webkit-transform: translate(0, 0) rotate(16deg);
     -moz-transform: translate(0, 0) rotate(16deg);
     -ms-transform: translate(0, 0) rotate(16deg);
     -o-transform: translate(0, 0) rotate(16deg);
-    transform: translate(0, 0) rotate(16deg); }
+    transform: translate(0, 0) rotate(16deg);
+    left: 19%;
+    top: 53%; }
   #modalWork #tabpanel1.on .md_tit img:nth-of-type(3) {
     -webkit-transform: translate(0, 0) rotate(13deg);
     -moz-transform: translate(0, 0) rotate(13deg);
     -ms-transform: translate(0, 0) rotate(13deg);
     -o-transform: translate(0, 0) rotate(13deg);
-    transform: translate(0, 0) rotate(13deg); }
+    transform: translate(0, 0) rotate(13deg);
+    left: 67%;
+    top: 60%; }
+  #modalWork #tabpanel1 .move_up {
+    height: 75vh; }
+    #modalWork #tabpanel1 .move_up ul li {
+      padding-top: 50px; }
+    #modalWork #tabpanel1 .move_up ul li:nth-child(even) .b {
+      color: #707070; }
   #modalWork #tabpanel2 > * {
     float: right;
     width: 50%; }
   #modalWork #tabpanel2.on .md_tit {
-    padding: 180px 0;
-    text-align: center; }
+    padding: 180px 0; }
     #modalWork #tabpanel2.on .md_tit img:nth-of-type(1) {
       -webkit-transform: translate(0, 0) rotate(-17deg);
       -moz-transform: translate(0, 0) rotate(-17deg);
@@ -448,63 +458,68 @@ body {
       transform: translate(0, 0) rotate(-29deg);
       left: 55%;
       top: 81%; }
-  #modalWork #tabpanel2 .responsive {
-    padding: 0 50px;
-    box-sizing: border-box; }
-    #modalWork #tabpanel2 .responsive > ul {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex; }
-      #modalWork #tabpanel2 .responsive > ul li {
-        width: calc(100% / 3);
-        height: 110px;
-        opacity: 0.7;
-        cursor: pointer;
-        vertical-align: bottom;
-        text-align: center; }
-        #modalWork #tabpanel2 .responsive > ul li h5 {
-          font-size: 20px;
-          font-weight: 600; }
-        #modalWork #tabpanel2 .responsive > ul li:nth-child(3) {
-          padding-top: 10px; }
-      #modalWork #tabpanel2 .responsive > ul li.on {
-        opacity: 1; }
-    #modalWork #tabpanel2 .responsive .move_up {
+  #modalWork #tabpanel2 .responsive > ul {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    z-index: 50; }
+    #modalWork #tabpanel2 .responsive > ul li {
+      -webkit-transition: opacity 0.5s;
+      transition: opacity 0.5s;
+      width: calc(100% / 3);
+      height: 110px;
+      opacity: 0.2;
+      cursor: pointer;
+      vertical-align: bottom;
       text-align: center; }
-      #modalWork #tabpanel2 .responsive .move_up .tabpanelR > p {
+      #modalWork #tabpanel2 .responsive > ul li h5 {
+        font-size: 20px;
+        font-weight: 600; }
+      #modalWork #tabpanel2 .responsive > ul li:nth-child(3) {
+        padding-top: 10px; }
+    #modalWork #tabpanel2 .responsive > ul li.on {
+      opacity: 1; }
+  #modalWork #tabpanel2 .responsive .move_up {
+    height: 60vh; }
+    #modalWork #tabpanel2 .responsive .move_up > div {
+      text-align: center; }
+      #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR > p {
         width: 450px;
         padding: 65px 0;
         text-align: left;
         font-size: 25px; }
-      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a {
-        display: block; }
-        #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li a img {
-          width: 33.854vw; }
-      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li:nth-child(even) .b {
-        color: #FFB301; }
-      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li .b_y {
-        color: #FFB301;
-        font-weight: 600; }
-      #modalWork #tabpanel2 .responsive .move_up .tabpanelR ul li p {
-        text-align: left; }
-      #modalWork #tabpanel2 .responsive .move_up #tabpanelM li {
+      #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li {
+        height: 60vh;
+        box-sizing: border-box; }
+        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li a {
+          display: block; }
+          #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li a img {
+            width: 33.854vw; }
+        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li:nth-child(even) .b {
+          color: #FFB301; }
+        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li .b_y {
+          color: #FFB301;
+          font-weight: 600; }
+        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li p {
+          text-align: left; }
+      #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li {
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
         -webkit-align-items: flex-end;
-        align-items: flex-end;
-        margin-bottom: 200px; }
-        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a {
+        align-items: flex-end; }
+        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li a {
           display: inline-block; }
-          #modalWork #tabpanel2 .responsive .move_up #tabpanelM li a img {
+          #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li a img {
             width: 250px; }
-        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt strong {
+        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li .m_txt strong {
           margin-top: -30px; }
-        #modalWork #tabpanel2 .responsive .move_up #tabpanelM li .m_txt p {
+        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li .m_txt p {
           width: 80%;
           padding: 0; }
   #modalWork .close_btn {

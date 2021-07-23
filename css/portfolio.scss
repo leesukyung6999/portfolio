@@ -108,6 +108,7 @@ body{font-family: "noto sans kr";color: #fff;}
 #work{
     background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;padding-top: 300px;box-sizing: border-box;
     .front_back{
+        @include transform(perspective(0));
         position: relative;margin: 0 auto;width: 1220px;height: 880px;
         .card{
             @include transition(all 1s);
@@ -141,7 +142,7 @@ body{font-family: "noto sans kr";color: #fff;}
         // tablist 와 tab
         > ul{
             @include flex;
-            width: 600px;margin: 0 auto;padding: 30px 0;
+            width: 600px;margin: 0 auto;padding: 30px 0;z-index: 50;
             li{
                 width: 50%;height: 60px;line-height: 54px;border: 3px solid #fff;box-sizing: border-box;text-align: center;font-size: 20px;font-weight: 600;cursor: pointer;
             }
@@ -154,21 +155,24 @@ body{font-family: "noto sans kr";color: #fff;}
     // tabpanel 공통
     .tabpanel{
         .md_tit{
-            position: relative;font-size: 200px;letter-spacing: 5px;line-height: 200px;box-sizing: border-box;
+            position: relative;font-size: 200px;letter-spacing: 5px;line-height: 200px;box-sizing: border-box;text-align: center;
             img{
                 @include transition(all 0.5s);
                 @include transform(translate(0,250px) rotate(-90deg));
                 position: absolute;
             }
     }
-        ul li{
+        .move_up{
+            padding: 0 50px;box-sizing: border-box;overflow: hidden;
+            ul li{
             a{
                 display: block;
                 img{max-width: 100%;}
             }
             .b{display: inline-block;font-size: 3.17vw;font-weight: 700;vertical-align: top;}
-            p{display: inline-block;padding: 45px 0 95px;font-size: 18px;line-height: 2;width: 31.25vw;}
+            p{display: inline-block;padding: 50px 0;font-size: 18px;line-height: 2;width: 31.25vw;}
             .bb{color: #707070;font-size: 18px;font-weight: 600;}
+            }
         }
     }
     // 설화수, 코닥 제품 떠 있는 애니메이션 
@@ -180,84 +184,82 @@ body{font-family: "noto sans kr";color: #fff;}
     #tabpanel1{
             > * {float: left;width: 50%;}
             .md_tit{
-                padding: 0 75px;text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);text-align: center;
-                //img{@include transition(all 1s);}
-                img:nth-of-type(1){left: 68%;top: 2%;}
-                img:nth-of-type(2){left: 19%;top: 53%;}
-                img:nth-of-type(3){left: 67%;top: 60%;}
-            }
-            ul li{
-                &:nth-child(even) .b{color: #707070;}
+                padding: 0 75px;text-shadow: 40px 3px 6px rgba(0, 0, 0, 0.16);
             }
             &.on .md_tit{
-                img:nth-of-type(1){@include transform(translate(0,0) rotate(-18deg));}
-                img:nth-of-type(2){@include transform(translate(0,0) rotate(16deg));}
-                img:nth-of-type(3){@include transform(translate(0,0) rotate(13deg));}
+                img:nth-of-type(1){@include transform(translate(0,0) rotate(-18deg));left: 68%;top: 2%;}
+                img:nth-of-type(2){@include transform(translate(0,0) rotate(16deg));left: 19%;top: 53%;}
+                img:nth-of-type(3){@include transform(translate(0,0) rotate(13deg));left: 67%;top: 60%;}
             }                
+            .move_up{
+                height: 75vh;
+                ul{
+                    li{padding-top: 50px;}
+                    li:nth-child(even) .b{color: #707070;}
+                }
+            }
 
     }
     // 코닥
     #tabpanel2{
             > * {float: right;width: 50%;}
             &.on .md_tit{
-                padding: 180px 0;text-align: center;
+                padding: 180px 0;
                 img:nth-of-type(1){@include transform(translate(0,0) rotate(-17deg));left: 45%;top: 0%;}
                 img:nth-of-type(2){@include transform(translate(0,0) rotate(16deg));left: 8%;top: 60%;}
                 img:nth-of-type(3){@include transform(translate(0,0) rotate(-29deg));left: 55%;top: 81%;}
             }
             .responsive{
-                padding: 0 50px;box-sizing: border-box;
                 > ul{
-                    @include flex;
+                    @include flex;position: relative;z-index: 50;
                     li{
-                        width: calc(100% / 3);height: 110px;opacity: 0.7;cursor: pointer;vertical-align: bottom;text-align: center;
+                        @include transition(opacity 0.5s);
+                        width: calc(100% / 3);height: 110px;opacity: 0.2;cursor: pointer;vertical-align: bottom;text-align: center;
                         h5{font-size: 20px;font-weight: 600;}
                         &:nth-child(3){padding-top: 10px;}
                     }
                     li.on{opacity: 1;}
                 }
-                .move_up{
+                .move_up{ 
+                    height: 60vh;
+                    > div{
                     // tabpanelPC, tabpanelTb, tabpanelM 공통
-                    text-align: center;
-                    .tabpanelR{
-                        > p{width: 450px;padding: 65px 0;text-align: left;font-size: 25px;}
-                        ul li{
-                            a{
-                                display: block;
-                                img{width: 33.854vw;}
-                            }
-                            &:nth-child(even) .b{color: #FFB301;}
-                            .b_y{color: #FFB301;font-weight: 600;}
-                            p{text-align: left;}
-                        }  
-                    }
-                    #tabpanelM{
-                        li{
-                            @include flex;
-                            @include align-items(flex-end);
-                            margin-bottom: 200px;
-                            a{
-                                display: inline-block;
-                                img{width: 250px;}
-                            }
-                            .m_txt{
-                                strong{margin-top: -30px;}
-                                p{width: 80%;padding: 0;}
+                        text-align: center;
+                        .tabpanelR{
+                            > p{width: 450px;padding: 65px 0;text-align: left;font-size: 25px;}
+                            ul li{
+                                height: 60vh;box-sizing: border-box;
+                                a{
+                                    display: block;
+                                    img{width: 33.854vw;}
+                                }
+                                &:nth-child(even) .b{color: #FFB301;}
+                                .b_y{color: #FFB301;font-weight: 600;}
+                                p{text-align: left;}
+                            }  
+                        }
+                        #tabpanelM{
+                            li{
+                                @include flex;
+                                @include align-items(flex-end);
+                                a{
+                                    display: inline-block;
+                                    img{width: 250px;}
+                                }
+                                .m_txt{
+                                    strong{margin-top: -30px;}
+                                    p{width: 80%;padding: 0;}
+                                }
                             }
                         }
-                    }
-                                           
-                 }  
+                    }  
+                }
             }
     }
     .close_btn{position: absolute;right: 30px;top: 30px;width: 31px;height: 31px;}
 }
 // tab이 .active를 가지는 경우
-#modalWork{
-    .modal_wrap.active{
-        background: #222;   
-    }
-}
+#modalWork .modal_wrap.active{background: #222;}
 
 // contact
 // aside#banner > nav#snb
