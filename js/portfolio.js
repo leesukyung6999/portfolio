@@ -38,22 +38,11 @@ $(document).ready(function(){
             $card.eq(0).removeAttr('aria-hidden').siblings('.card').attr('aria-hidden','true');
         }
     });
+    $controller.find('button').on('keydown', function(e){
+        const key = e.keyCode;
+        if (key === 37 || key === 39) $(this).siblings().focus();
+    });
      // 3-2) work 모달창 열기 제어
-          /* 
-            모달 열기 버튼 클릭
-            1) 변수선언 : 열기버튼, 열려질 상세 모달 내용, 닫기버튼, 포커스를 처음가질 요소, 포커스를 마지막에 가질 요소
-            
-            3) 열려진 모달을 제외한 나머지에 스크린리더 접근 제한: aria-hidden, inert
-            4) dim 동적생성후 모달 보여지게 처리 -> 첫번째 요소에 포커스 강제 이동
-            5) 닫기 버튼을 누르기 전까지 포커스 제어 -> 키보드 trapping
-
-            모달 닫기 버튼 클릭(Esc 키보드를 누르는 경우, dim 클릭하는 경우)
-            1) html, body에게 준 높이를 제거 -> removeAttr('style')
-            2) dim 보이지 않게 숨기고 -> 삭제
-            3-1) 열려진 모달도 숨기기
-            3-2) 열려진 모달을 제외한 나머지에 스크린리더 접근 허용: aria-hidden, inert을 제거
-            4) 모달열기 버튼에 포커스 강제 이동
-        */
     const wrapHei = $('#wrap').height();
     const $btn = $card.find('button');
     const $md = $('#modalWork');
@@ -72,13 +61,14 @@ $(document).ready(function(){
         if ($(this).hasClass('sulwhasoo')){
             btnNum = 0;
             // 설화수 창 보이게 함
-            $md.fadeIn().children('.modal_wrap').removeClass('active').find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().next().hide();
+            $md.fadeIn().children('.modal_wrap').removeClass('active').find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().removeAttr('aria-hidden','inert').next().hide().attr({'aria-hidden': true,inert: ''});
             }
         else{
             btnNum = 1;
             // 코닥 창 보이게 함
-            $md.fadeIn().children('.modal_wrap').addClass('active').find('ul[role="tablist"] .tab:last-child').addClass('on').siblings().removeClass('on').parent().next().hide().next().show();
+            $md.fadeIn().children('.modal_wrap').addClass('active').find('ul[role="tablist"] .tab:last-child').addClass('on').siblings().removeClass('on').parent().next().hide().attr({'aria-hidden': true,inert: ''}).next().show().removeAttr('aria-hidden','inert');
         }
+
         // 모달 열릴때 제품이 떠오르게 만들기
         productJump(btnNum);
 
@@ -92,10 +82,10 @@ $(document).ready(function(){
         const idxNum = $(this).index();
         //console.log(typeof idxNum);
         if (idxNum === 0) {
-            $mdWrap.removeClass('active').find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().next().hide();
+            $mdWrap.removeClass('active').find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().removeAttr('aria-hidden','inert').next().hide().attr({'aria-hidden': true,inert: ''});
         }
         else {
-            $mdWrap.addClass('active').find('ul[role="tablist"] .tab:last-child').addClass('on').siblings().removeClass('on').parent().next().hide().next().show();
+            $mdWrap.addClass('active').find('ul[role="tablist"] .tab:last-child').addClass('on').siblings().removeClass('on').parent().next().hide().attr({'aria-hidden': true,inert: ''}).next().show().removeAttr('aria-hidden','inert');
         }
         // 모달 열릴때 제품이 떠오르게 만들기
         productJump(idxNum);
@@ -105,9 +95,6 @@ $(document).ready(function(){
 
     });
 
-    $('#dim').on('click', function() {
-        $md.find('.close_btn').trigger('click');
-    });
     // 3-5)모달 창 닫기
     $md.find('.close_btn').on('click',function(){
         // 0) 모달 숨기기
@@ -121,9 +108,23 @@ $(document).ready(function(){
         // 4) .tabpanel.on 없애기 ( productJump 초기화)
         $md.find('.modal_wrap > .tabpanel').removeClass('on');
     });
+
+    $('#dim').on('click', function() {
+        $md.find('.close_btn').trigger('click');
+    });
+
     // 1. 모달 열릴때 제품이 떠오르게 만드는 함수
     function productJump($num){
         setTimeout(function(){
+            // 4) tab(설화수/코닥)에 포커스 가게 하기
+            $md.children().find('> ul li').eq($num).attr('tabIndex',0).focus();
+            $(document).on('keydown',function(e){
+                const key = e.keyCode;
+                console.log(key); //왼: 37, 오: 39
+                 if ( key === 37 || key === 39) {
+                     $md.children().find('> ul li').eq($num).removeAttr('tabIndex').siblings().attr('tabIndex',0);
+                 }
+            })
             $md.find('.modal_wrap > .tabpanel').eq($num).addClass('on').siblings('.tabpanel').removeClass('on');
         }, 100);
     }
@@ -163,4 +164,5 @@ $(document).ready(function(){
     $md.find('.responsive > ul li').on('click', function(){
         $(this).addClass('on').siblings().removeClass('on');
     });
+
 });

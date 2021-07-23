@@ -28,7 +28,7 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 // intro
 #intro{
-    background-image: url("../images/1_rainbow.png") , linear-gradient($pink,$wPurple);background-repeat: no-repeat;background-position: 100% 0;
+    background: url("../images/1_rainbow.png") , linear-gradient($pink,$wPurple);background-repeat: no-repeat;background-position: 100% 0;
     .intro{
         position: relative;padding-top: 200px;
         .balloon{position: absolute;}
@@ -59,11 +59,8 @@ body{font-family: "noto sans kr";color: #fff;}
     .intro h2, .intro .balloon{@include transition(all 2s cubic-bezier(0, 0.71, 0.12, 1));opacity: 0;}
     .intro h2{@include transform(translate(-10.416vw, 0));transition-delay: 0.9s;}
     .intro .balloon{@include transform(translate(0, 10.416vw));}
-    .intro_top .balloon:first-child{transition-delay: 0.3s;}
-    .intro_top .balloon:last-child{transition-delay: 0.6s;}
-    .intro_btm .balloon:first-child{transition-delay: 0.3s;}
-    .intro_btm .balloon:last-child{transition-delay: 0.6s;}
-
+    .intro_top .balloon:first-child, .intro_btm .balloon:first-child{transition-delay: 0.3s;}
+    .intro_top .balloon:last-child, .intro_btm .balloon:last-child{transition-delay: 0.6s;}
     .intro.fade h2, .intro.fade .cloud, .intro.fade .balloon{@include transform(translate(0, 0));opacity: 1;}
 }
 // about
@@ -89,7 +86,7 @@ body{font-family: "noto sans kr";color: #fff;}
         @include justify-content(flex-end);
         visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);
         div{width: 50%;padding: 5%;box-sizing: border-box;}
-        h2{font-size: 50px;font-weight: 700;margin-bottom: 85px;}
+        h2{font-size: 35px;font-weight: 700;margin-bottom: 85px;}
         p{margin-bottom: 55px;}
     }
 }
@@ -106,10 +103,10 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 // work
 #work{
-    background: url("../images/3_clouds.png"), linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;padding-top: 300px;box-sizing: border-box;
+    background: linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;padding-top: 300px;box-sizing: border-box;overflow: hidden;
     .front_back{
         @include transform(perspective(0));
-        position: relative;margin: 0 auto;width: 1220px;height: 880px;
+        position: relative;margin: 0 auto;width: 1220px;
         .card{
             @include transition(all 1s);
             @include flex;
@@ -117,7 +114,7 @@ body{font-family: "noto sans kr";color: #fff;}
             @include align-items;
             position: absolute;left: 0;top: 0;width: 100%;height: 100%;backface-visibility: hidden;
             z-index: 50;
-            h3{font-size: 60px;}
+            h3{font-size: 50px;}
             .open{border: 2px solid #fff;border-radius: 25px;padding: 10px 15px;margin-top: 40px;}
             .open:hover{background: rgba(255, 255, 255,.3);}
         }
@@ -132,6 +129,9 @@ body{font-family: "noto sans kr";color: #fff;}
         &.flip .front{@include transform(rotateY(180deg));}
         &.flip .back{@include transform(rotateY(0deg));}
     }
+    > img{
+        margin-left: -25px;
+    }
 }
 // work 모달 창
 #dim, #modalWork{position: fixed;top: 0;left: 0;width: 100%;background: rgba(255, 255, 255,.7);}
@@ -144,7 +144,7 @@ body{font-family: "noto sans kr";color: #fff;}
             @include flex;
             width: 600px;margin: 0 auto;padding: 30px 0;z-index: 50;
             li{
-                width: 50%;height: 60px;line-height: 54px;border: 3px solid #fff;box-sizing: border-box;text-align: center;font-size: 20px;font-weight: 600;cursor: pointer;
+                width: 50%;height: 60px;line-height: 54px;border: 3px solid #fff;box-sizing: border-box;text-align: center;font-size: 18px;font-weight: 600;cursor: pointer;
             }
             li:first-child{border-radius: 20px 0 0 20px;}
             li:last-child{border-radius: 0 20px 20px 0;}
@@ -169,16 +169,11 @@ body{font-family: "noto sans kr";color: #fff;}
                 display: block;
                 img{max-width: 100%;}
             }
-            .b{display: inline-block;font-size: 3.17vw;font-weight: 700;vertical-align: top;}
+            .b{display: inline-block;font-size: 2.6vw;font-weight: 700;vertical-align: top;}
             p{display: inline-block;padding: 50px 0;font-size: 18px;line-height: 2;width: 31.25vw;}
             .bb{color: #707070;font-size: 18px;font-weight: 600;}
             }
         }
-    }
-    // 설화수, 코닥 제품 떠 있는 애니메이션 
-    @keyframes upDown {
-        0%{transform: translate(0, 100px);}
-        100%{transform: translate(0, 0);}
     }
     //설화수
     #tabpanel1{
@@ -260,8 +255,35 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 // tab이 .active를 가지는 경우
 #modalWork .modal_wrap.active{background: #222;}
-
 // contact
+#contact{
+    background: linear-gradient(#6D5BAB, #342C51);width: 100%;overflow: hidden;
+    > *{float: left;box-sizing: border-box;}
+    h2{width: 50%;font-size: 150px;font-weight: 700;color: rgba(255, 255, 255,.7);text-align: left;padding: 50px 150px;}
+    > div{
+        width: 50%;
+        div{height: 50%;}
+    }
+    .contact_img{
+        @include keyframes(upDown);
+        @include animation(upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards);
+        position: relative;
+        h2{position: absolute;left: 17%;top: -3%;}
+    }
+    .contact_txt{
+        padding: 40px 100px;box-sizing: border-box;
+        > div{background: no-repeat 7% 0%;height: 50px;margin-bottom: 20px;padding-left: 100px;}
+        .birth{background-image: url("../images/4_icon1.png");}
+        .home{background-image: url("../images/4_icon2.png");}
+        .email{background-image: url("../images/4_icon3.png");}
+    }
+}
+@keyframes upDown {
+    0%{@include transform(translate(0, 50px));}
+    50%{@include transform(translate(0, 0));}
+    100%{@include transform(translate(0, 50px));}
+}
+
 // aside#banner > nav#snb
 #banner{
     display: none;
