@@ -26,16 +26,16 @@ $(document).ready(function(){
     const $card = $work.find('.card');
     const $controller = $work.find('.prev_next');
 
-    $card.eq(1).attr('aria-hidden','true');
+    $card.eq(1).attr({'aria-hidden': true}).siblings('.prev_next').children().eq(1).attr('tabIndex',-1);
 
     $controller.find('button').on('click', function(){
         if (!$work.children().hasClass('flip')){
             $work.children().addClass('flip');
-            $card.eq(0).attr('aria-hidden','true').siblings('.card').removeAttr('aria-hidden');
+            $card.eq(0).attr({'aria-hidden': true}).siblings('.card').removeAttr('aria-hidden');
         }
         else {
             $work.children().removeClass('flip');
-            $card.eq(0).removeAttr('aria-hidden').siblings('.card').attr('aria-hidden','true');
+            $card.eq(0).removeAttr('aria-hidden').siblings('.card').attr({'aria-hidden': true});
         }
     });
     $controller.find('button').on('keydown', function(e){
@@ -56,8 +56,8 @@ $(document).ready(function(){
         // 2) 열려진 모달을 제외한 나머지에 스크린리더 접근 제한: aria-hidden, inert
         $md.removeAttr('aria-hidden','inert').siblings().attr({'aria-hidden': true,inert: ''});
         // 3) #dim 동적생성
-        $md.before('<div id="dim></dim>');
-
+        $md.before('<div id="dim"></div>');
+        const $dim = $('#dim');
         if ($(this).hasClass('sulwhasoo')){
             btnNum = 0;
             // 설화수 창 보이게 함
@@ -74,6 +74,30 @@ $(document).ready(function(){
 
         //열린 모달안에서 마우스 휠
         mousewheelMove(btnNum);
+
+            // 3-5)모달 창 닫기
+        $md.find('.close_btn').on('click',function(){
+        // 0) 모달 숨기기
+        $md.fadeOut();
+        // 1) 현재 창 스크롤 다시 가능하게 만들기
+        $('html, body').removeAttr('style');
+        // 2) 닫힌 모달을 스크린리더 접근 제한: aria-hidden, inert 나머지는 aria-hidden, inert 없애기
+        $md.attr({'aria-hidden': true,'inert': ''}).siblings().removeAttr('aria-hidden','inert');
+        // 3) #dim 없애기
+        $dim.remove();
+        // 4) .tabpanel.on 없애기 ( productJump 초기화)
+        $md.find('.modal_wrap > .tabpanel').removeClass('on');
+        });
+
+        $dim.on({
+            click: function(){
+                $md.find('.close_btn').trigger('click');            
+            },
+            mousewheel: function(){
+                $md.find('.close_btn').trigger('click');   
+            }
+        });
+    
     });
 
     // 3-3) work 모달창 안에서 설화수 -> 코닥 , 코닥 -> 설화수
@@ -95,23 +119,6 @@ $(document).ready(function(){
 
     });
 
-    // 3-5)모달 창 닫기
-    $md.find('.close_btn').on('click',function(){
-        // 0) 모달 숨기기
-        $md.fadeOut();
-        // 1) 현재 창 스크롤 다시 가능하게 만들기
-        $('html, body').removeAttr('style');
-        // 2) 닫힌 모달을 스크린리더 접근 제한: aria-hidden, inert 나머지는 aria-hidden, inert 없애기
-        $md.attr({'aria-hidden': true,'inert': ''}).siblings().removeAttr('aria-hidden','inert');
-        // 3) #dim 없애기
-        $('#dim').remove();
-        // 4) .tabpanel.on 없애기 ( productJump 초기화)
-        $md.find('.modal_wrap > .tabpanel').removeClass('on');
-    });
-
-    $('#dim').on('click', function() {
-        $md.find('.close_btn').trigger('click');
-    });
 
     // 1. 모달 열릴때 제품이 떠오르게 만드는 함수
     function productJump($num){
@@ -137,12 +144,12 @@ $(document).ready(function(){
             //console.log(e.originalEvent.wheelDelta);
             timer = setTimeout(function(){
                 const delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
-                console.log(delta);
+                //console.log(delta);
                 
                 const $move = $md.find('.move_up').eq($num).children();// ul태그 끌어올리기
                 const moveHei = $num === 0 ? $move.find('li').height(): $move.find('.tabpanelR li').height(); // 얼만큼 움직이는지
                 const moveMaxNum = $num === 0 ? $move.find('li').length: $move.find('.tabpanelR li').length + 7; 
-                console.log($num,moveHei, moveMaxNum);
+                //console.log($num,moveHei, moveMaxNum);
         
                 // 스크롤 내릴때
                 if (delta < 0 && idx < moveMaxNum) {
@@ -162,7 +169,34 @@ $(document).ready(function(){
 
     // 3-6) 모달 - 코닥에서 .responsive > ul li 누르면 opacity: 1
     $md.find('.responsive > ul li').on('click', function(){
+        const tabNum = $(this).index();
+        console.log(tabNum);
         $(this).addClass('on').siblings().removeClass('on');
+        const $move = $(this).parent().next().children();
+        let moveHei;
+        // let moveHei = new Array(3);
+        // $md.find('.responsive .tabpanelR').each(function(idx){
+        //     moveHei[idx] += $(this).outerHeight(true);
+        // });
+        // console.log($(this).outerHeight(true));
+        // if (tabNum === 0){
+        //     gsap.to($move, {marginTop: 0,duration: 0.5, ease: Power3.easeOut});
+        // }
+        // else {
+        //     gsap.to($move, {marginTop: -moveHei[tabNum - 1],duration: 0.5, ease: Power3.easeOut});
+        // }
+        switch (tabNum) {
+            case 0:
+            gsap.to($move, {marginTop: 0,duration: 0.5, ease: Power3.easeOut});
+                break;
+            case 1:
+            moveHei =  $md.find('.responsive .tabpanelR').eq(tabNum - 1).outerHeight();
+            gsap.to($move, {marginTop: -moveHei,duration: 0.5, ease: Power3.easeOut});
+                break;
+            case 2:
+            moveHei =  $md.find('.responsive .tabpanelR').eq(tabNum - 1).outerHeight() +   $md.find('.responsive .tabpanelR').eq(tabNum - 2).outerHeight();
+            gsap.to($move, {marginTop: -moveHei,duration: 0.5, ease: Power3.easeOut});
+        }
     });
 
 });

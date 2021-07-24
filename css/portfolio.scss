@@ -84,15 +84,31 @@ body{font-family: "noto sans kr";color: #fff;}
     .txt{
         @include flex;
         @include justify-content(flex-end);
-        visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);
-        div{width: 50%;padding: 5%;box-sizing: border-box;}
-        h2{font-size: 35px;font-weight: 700;margin-bottom: 85px;}
-        p{margin-bottom: 55px;}
+        visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);font-size: 22px;line-height: 1.6;
+        > div{
+            width: 50%;padding: 5%;box-sizing: border-box;
+            > div{width: 100%;margin-bottom: 30px;}
+        }
+        .howdoithink{
+            h2{font-size: 45px;font-weight: 700;margin-bottom: 30px;}
+            .bold{font-weight: 700;font-size: 25px;}
+            p{padding: 20px 0;}
+        }
+        .character{
+            > div{            
+                @include flex;
+                @include align-items;
+                @include justify-content(space-around);
+                margin-bottom: 30px;
+            }
+            strong{text-align: center;}
+            p{width: 80%;padding: 20px 0;}
+        }
     }
 }
 #about.on{
     .window{
-        width: 50%;height: 80vh;
+        width: 50%;height: 85vh;
         .birds{left: 57%;top: 25%;}
         .cloud{left: -20%;top: 33%;}
     }
@@ -103,7 +119,7 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 // work
 #work{
-    background: linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;background-position: 0 100%;padding-top: 300px;box-sizing: border-box;overflow: hidden;
+    background: linear-gradient(#AB9CDE, #6D5BAB);background-repeat: no-repeat;padding-top: 300px;box-sizing: border-box;overflow: hidden;
     .front_back{
         @include transform(perspective(0));
         position: relative;margin: 0 auto;width: 1220px;
@@ -130,15 +146,16 @@ body{font-family: "noto sans kr";color: #fff;}
         &.flip .back{@include transform(rotateY(0deg));}
     }
     > img{
-        margin-left: -25px;
+        margin-left: -10px;// 1920에서 -25px로?
     }
 }
 // work 모달 창
-#dim, #modalWork{position: fixed;top: 0;left: 0;width: 100%;background: rgba(255, 255, 255,.7);}
+#dim{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(255, 255, 255,.7);}
 #modalWork{
-    z-index: 70;
+    @include translate-50;
+    position: fixed;top: 50%;left: 50%;z-index: 70;width: calc(100% - 140px);height: calc(100% - 140px);;
     .modal_wrap{
-        margin: 70px 70px;background: #F6CD85;height: calc(100vh - 140px);overflow: hidden;
+        /* margin: 70px 70px; */background: #F6CD85;height: calc(100vh - 140px);overflow: hidden;
         // tablist 와 tab
         > ul{
             @include flex;
@@ -171,7 +188,7 @@ body{font-family: "noto sans kr";color: #fff;}
             }
             .b{display: inline-block;font-size: 2.6vw;font-weight: 700;vertical-align: top;}
             p{display: inline-block;padding: 50px 0;font-size: 18px;line-height: 2;width: 31.25vw;}
-            .bb{color: #707070;font-size: 18px;font-weight: 600;}
+            .bb{color: #fff;font-size: 22px;font-weight: 600;}
             }
         }
     }
@@ -187,10 +204,10 @@ body{font-family: "noto sans kr";color: #fff;}
                 img:nth-of-type(3){@include transform(translate(0,0) rotate(13deg));left: 67%;top: 60%;}
             }                
             .move_up{
-                height: 75vh;
+                height: 75vh;color: #707070;
                 ul{
                     li{padding-top: 50px;}
-                    li:nth-child(even) .b{color: #707070;}
+                    // li:nth-child(even) .b{color: #fff;}
                 }
             }
 
@@ -234,7 +251,7 @@ body{font-family: "noto sans kr";color: #fff;}
                             }  
                         }
                         #tabpanelM{
-                            li{
+                            ul li{
                                 @include flex;
                                 @include align-items(flex-end);
                                 a{
@@ -251,31 +268,33 @@ body{font-family: "noto sans kr";color: #fff;}
                 }
             }
     }
-    .close_btn{position: absolute;right: 30px;top: 30px;width: 31px;height: 31px;}
+    .close_btn{position: absolute;right: -40px;top: -40px;width: 31px;height: 31px;}
 }
 // tab이 .active를 가지는 경우
 #modalWork .modal_wrap.active{background: #222;}
 // contact
 #contact{
-    background: linear-gradient(#6D5BAB, #342C51);width: 100%;overflow: hidden;
-    > *{float: left;box-sizing: border-box;}
-    h2{width: 50%;font-size: 150px;font-weight: 700;color: rgba(255, 255, 255,.7);text-align: left;padding: 50px 150px;}
-    > div{
-        width: 50%;
-        div{height: 50%;}
-    }
-    .contact_img{
-        @include keyframes(upDown);
-        @include animation(upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards);
-        position: relative;
-        h2{position: absolute;left: 17%;top: -3%;}
-    }
-    .contact_txt{
-        padding: 40px 100px;box-sizing: border-box;
-        > div{background: no-repeat 7% 0%;height: 50px;margin-bottom: 20px;padding-left: 100px;}
-        .birth{background-image: url("../images/4_icon1.png");}
-        .home{background-image: url("../images/4_icon2.png");}
-        .email{background-image: url("../images/4_icon3.png");}
+    @include flex;
+    @include justify-content(space-between);
+    background: url("../images/4_bg.png"), linear-gradient(#6D5BAB, #342C51);width: 100%;overflow: hidden;background-position: 0 -5%;background-repeat: no-repeat;height: 100vh;
+    > *{float: left;box-sizing: border-box;height: 100%;margin-top: 200px;}
+    h2{width: 55%;font-size: 150px;font-weight: 700;color: rgba(255, 255, 255,.7);text-align: left;padding: 50px 150px;}
+    div{
+        width: 45%;
+        > div{height: 50%;}
+        .contact_img{
+            @include keyframes(upDown);
+            @include animation(upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards);
+            position: relative;
+            h2{position: absolute;left: 35%;top: -3%;}
+        }
+        .contact_txt{
+            box-sizing: border-box;padding: 40px 0;
+            > div{background: no-repeat 3% 0%;height: 50px;margin-bottom: 20px;padding-left: 100px;}
+            .birth{background-image: url("../images/4_icon1.png");}
+            .home{background-image: url("../images/4_icon2.png");}
+            .email{background-image: url("../images/4_icon3.png");}
+        }
     }
 }
 @keyframes upDown {
@@ -285,11 +304,24 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 
 // aside#banner > nav#snb
-#banner{
-    display: none;
-    position: fixed;right: 3%;top: 10%;background: url("../images/sub_nav.png") no-repeat center;width: 235px;height: 667px;
-    #snb{
-        position: absolute;right: 10%;top: 47%;
-        li{margin-bottom: 50px;color: /* #816e5a */#fff;}
+// #banner{
+//     display: none;
+//     position: fixed;right: 3%;top: 10%;background: url("../images/sub_nav.png") no-repeat center;width: 235px;height: 667px;
+//     #snb{
+//         position: absolute;right: 10%;top: 47%;
+//         li{margin-bottom: 50px;color: /* #816e5a */#fff;}
+//     }
+// }
+
+@media screen and (max-width: 1680px) {
+    #work > img{
+        margin-left: -110px;
     }
+
+}
+@media screen and (max-width: 1440px) {
+    #work > img{
+        margin-left: -240px;
+    }
+
 }

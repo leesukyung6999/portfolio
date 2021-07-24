@@ -25,7 +25,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work</a></li>
-          <li><a href="#skill">Skill</a></li>
+           <!--<li><a href="#skill">Skill</a></li> -->
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -33,8 +33,8 @@
     <section id="intro">
       <div class="intro_top intro">
         <div class="hello_move">
-          <h2 class="hello">hello</h2>
           <img src="images/1_cloud1.png" alt="" class="cloud d-3">
+          <h2 class="hello">hello</h2>
         </div>
         <img src="images/1_pink_s_bal.png" alt="" class="balloon d-6">
         <img src="images/1_purple_bal.png" alt="" class="balloon d-9">
@@ -58,22 +58,35 @@
         </div>
         <div class="txt">
           <div>
-            <h2>안녕하세요,<br> 웹 퍼블리셔 이수경입니다.</h2>
-            <p class="first">
-              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-            </p>
-            <p class="second">
-              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-            </p>
-            <p class="third">
-              이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경이수경
-            </p>
+            <div class="howdoithink">
+              <h2>안녕하세요,<br> 웹 퍼블리셔 이수경입니다.</h2>
+              <p>저는 웹사이트에서 가장 중요한 것은 <br>
+                <span class="bold">‘웹사이트가 목적에 맞게 제작되었는가’와 <br>‘사용자에게 편의성을 제공하는가’</span> 라고 생각합니다.<br>
+                따라서 저는 정보전달, 학습, 채팅, 오락 등 목적에 부합하도록 웹사이트가 구성될 수 있도록 노력합니다.
+                제가 구성한 웹페이지가 사용자의 웹사이트 사용 목적을 충족시킬 것인가 그리고 그 과정이 어렵지 않고 편리할 것 인가를 늘 고민하는 웹퍼블리셔입니다.
+              </p>
+            </div>
+            <div class="character">
+              <div>
+                <strong>책임감</strong>
+                <p>주어진 일을 끝까지 포기하지 않으며<br> 책임감을 갖고 임합니다.</p>
+              </div>
+              <div>
+                <strong>협동심</strong>
+                <p>서로를 보완해주며 시너지 효과를 내는<br> 팀워크를 추구합니다.</p>
+              </div>
+            </div>
+            <div class="skill"></div>
           </div>
         </div>
       </div>
     </section>
     <section id="work">
       <div class="front_back">
+        <div class="prev_next">
+          <button type="button" class="prev"><img src="images/prev_btn.png" alt="이전 버튼"></button>
+          <button type="button" class="next"><img src="images/next_btn.png" alt="다음 버튼"></button>
+        </div>
         <div class="front card">
             <h2><img src="images/3_work.png" alt="프로젝트: 설화수"></h2>
             <h3>Sulwhasoo</h3>
@@ -85,10 +98,6 @@
             <h3>Kodak</h3>
             <button type="button" class="open kodak" aria-haspopup="dialog" title="대화상자" data-href="#modalWork">자세히
               보기</button>
-        </div>
-        <div class="prev_next">
-          <button type="button" class="prev"><img src="images/prev_btn.png" alt="이전 버튼"></button>
-          <button type="button" class="next"><img src="images/next_btn.png" alt="다음 버튼"></button>
         </div>
       </div>
       <img src="images/3_clouds.png" alt="">
@@ -107,7 +116,7 @@
         </div>
       </div>
     </section>
-    <aside id="banner">
+    <!-- <aside id="banner">
       <nav id="snb">
         <ul>
           <li><a href="#about">About</a></li>
@@ -116,7 +125,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-    </aside>
+    </aside> -->
   </div>
   <!-- 모달 창 -->
   <div id="modalWork" role="dialog" aria-modal="true" aria-label="작업물 상세보기">
@@ -303,6 +312,5 @@
     </div>
     <button type="button" class="close_btn"><img src="images/close_btn_s.png" alt="현재 창 닫기"></button>
   </div>
+  </html>
 </body>
-
-</html>

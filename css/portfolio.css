@@ -192,21 +192,45 @@ body {
     width: 100%;
     height: 100%;
     color: #707070;
-    background: rgba(255, 255, 255, 0.65); }
-    #about .txt div {
+    background: rgba(255, 255, 255, 0.65);
+    font-size: 22px;
+    line-height: 1.6; }
+    #about .txt > div {
       width: 50%;
       padding: 5%;
       box-sizing: border-box; }
-    #about .txt h2 {
-      font-size: 35px;
+      #about .txt > div > div {
+        width: 100%;
+        margin-bottom: 30px; }
+    #about .txt .howdoithink h2 {
+      font-size: 45px;
       font-weight: 700;
-      margin-bottom: 85px; }
-    #about .txt p {
-      margin-bottom: 55px; }
+      margin-bottom: 30px; }
+    #about .txt .howdoithink .bold {
+      font-weight: 700;
+      font-size: 25px; }
+    #about .txt .howdoithink p {
+      padding: 20px 0; }
+    #about .txt .character > div {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+      margin-bottom: 30px; }
+    #about .txt .character strong {
+      text-align: center; }
+    #about .txt .character p {
+      width: 80%;
+      padding: 20px 0; }
 
 #about.on .window {
   width: 50%;
-  height: 80vh; }
+  height: 85vh; }
   #about.on .window .birds {
     left: 57%;
     top: 25%; }
@@ -222,7 +246,6 @@ body {
 #work {
   background: linear-gradient(#AB9CDE, #6D5BAB);
   background-repeat: no-repeat;
-  background-position: 0 100%;
   padding-top: 300px;
   box-sizing: border-box;
   overflow: hidden; }
@@ -301,19 +324,30 @@ body {
       -o-transform: rotateY(0deg);
       transform: rotateY(0deg); }
   #work > img {
-    margin-left: -25px; }
+    margin-left: -10px; }
 
-#dim, #modalWork {
+#dim {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   background: rgba(255, 255, 255, 0.7); }
 
 #modalWork {
-  z-index: 70; }
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 70;
+  width: calc(100% - 140px);
+  height: calc(100% - 140px); }
   #modalWork .modal_wrap {
-    margin: 70px 70px;
+    /* margin: 70px 70px; */
     background: #F6CD85;
     height: calc(100vh - 140px);
     overflow: hidden; }
@@ -383,8 +417,8 @@ body {
       line-height: 2;
       width: 31.25vw; }
     #modalWork .tabpanel .move_up ul li .bb {
-      color: #707070;
-      font-size: 18px;
+      color: #fff;
+      font-size: 22px;
       font-weight: 600; }
   #modalWork #tabpanel1 > * {
     float: left;
@@ -417,11 +451,10 @@ body {
     left: 67%;
     top: 60%; }
   #modalWork #tabpanel1 .move_up {
-    height: 75vh; }
+    height: 75vh;
+    color: #707070; }
     #modalWork #tabpanel1 .move_up ul li {
       padding-top: 50px; }
-    #modalWork #tabpanel1 .move_up ul li:nth-child(even) .b {
-      color: #707070; }
   #modalWork #tabpanel2 > * {
     float: right;
     width: 50%; }
@@ -498,7 +531,7 @@ body {
           font-weight: 600; }
         #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li p {
           text-align: left; }
-      #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li {
+      #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li {
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
@@ -506,19 +539,19 @@ body {
         display: flex;
         -webkit-align-items: flex-end;
         align-items: flex-end; }
-        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li a {
+        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li a {
           display: inline-block; }
-          #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li a img {
+          #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li a img {
             width: 250px; }
-        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li .m_txt strong {
+        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li .m_txt strong {
           margin-top: -30px; }
-        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM li .m_txt p {
+        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li .m_txt p {
           width: 80%;
           padding: 0; }
   #modalWork .close_btn {
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: -40px;
+    top: -40px;
     width: 31px;
     height: 31px; }
 
@@ -526,48 +559,60 @@ body {
   background: #222; }
 
 #contact {
-  background: linear-gradient(#6D5BAB, #342C51);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  background: url("../images/4_bg.png"), linear-gradient(#6D5BAB, #342C51);
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  background-position: 0 -5%;
+  background-repeat: no-repeat;
+  height: 100vh; }
   #contact > * {
     float: left;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    height: 100%;
+    margin-top: 200px; }
   #contact h2 {
-    width: 50%;
+    width: 55%;
     font-size: 150px;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.7);
     text-align: left;
     padding: 50px 150px; }
-  #contact > div {
-    width: 50%; }
-    #contact > div div {
+  #contact div {
+    width: 45%; }
+    #contact div > div {
       height: 50%; }
-  #contact .contact_img {
-    -webkit-animation: upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards;
-    -moz-animation: upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards;
-    animation: upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards;
-    position: relative; }
+    #contact div .contact_img {
+      -webkit-animation: upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards;
+      -moz-animation: upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards;
+      animation: upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards;
+      position: relative; }
 @-webkit-keyframes upDown {}
 @-moz-keyframes upDown {}
-    #contact .contact_img h2 {
-      position: absolute;
-      left: 17%;
-      top: -3%; }
-  #contact .contact_txt {
-    padding: 40px 100px;
-    box-sizing: border-box; }
-    #contact .contact_txt > div {
-      background: no-repeat 7% 0%;
-      height: 50px;
-      margin-bottom: 20px;
-      padding-left: 100px; }
-    #contact .contact_txt .birth {
-      background-image: url("../images/4_icon1.png"); }
-    #contact .contact_txt .home {
-      background-image: url("../images/4_icon2.png"); }
-    #contact .contact_txt .email {
-      background-image: url("../images/4_icon3.png"); }
+      #contact div .contact_img h2 {
+        position: absolute;
+        left: 35%;
+        top: -3%; }
+    #contact div .contact_txt {
+      box-sizing: border-box;
+      padding: 40px 0; }
+      #contact div .contact_txt > div {
+        background: no-repeat 3% 0%;
+        height: 50px;
+        margin-bottom: 20px;
+        padding-left: 100px; }
+      #contact div .contact_txt .birth {
+        background-image: url("../images/4_icon1.png"); }
+      #contact div .contact_txt .home {
+        background-image: url("../images/4_icon2.png"); }
+      #contact div .contact_txt .email {
+        background-image: url("../images/4_icon3.png"); }
 
 @keyframes upDown {
   0% {
@@ -588,20 +633,11 @@ body {
     -ms-transform: translate(0, 50px);
     -o-transform: translate(0, 50px);
     transform: translate(0, 50px); } }
-#banner {
-  display: none;
-  position: fixed;
-  right: 3%;
-  top: 10%;
-  background: url("../images/sub_nav.png") no-repeat center;
-  width: 235px;
-  height: 667px; }
-  #banner #snb {
-    position: absolute;
-    right: 10%;
-    top: 47%; }
-    #banner #snb li {
-      margin-bottom: 50px;
-      color: #fff; }
+@media screen and (max-width: 1680px) {
+  #work > img {
+    margin-left: -110px; } }
+@media screen and (max-width: 1440px) {
+  #work > img {
+    margin-left: -240px; } }
 
 /*# sourceMappingURL=portfolio.css.map */
