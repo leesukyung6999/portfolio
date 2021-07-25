@@ -13,6 +13,7 @@ body{font-family: "noto sans kr";color: #fff;}
 
 // common class
 .clearfix::after{content: "";display: block;clear: both;}
+.blind{width: 1px;height: 1px;overflow: hidden;border: none;position: absolute;clip: rect(1px,1px,1px,1px);clip-path: inset(50%);}
 
 // #header
 #header{
@@ -87,7 +88,6 @@ body{font-family: "noto sans kr";color: #fff;}
         visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);font-size: 22px;line-height: 1.6;
         > div{
             width: 50%;padding: 5%;box-sizing: border-box;
-            > div{width: 100%;margin-bottom: 30px;}
         }
         .howdoithink{
             h2{font-size: 45px;font-weight: 700;margin-bottom: 30px;}
@@ -95,14 +95,14 @@ body{font-family: "noto sans kr";color: #fff;}
             p{padding: 20px 0;}
         }
         .character{
-            > div{            
-                @include flex;
-                @include align-items;
-                @include justify-content(space-around);
-                margin-bottom: 30px;
-            }
-            strong{text-align: center;}
-            p{width: 80%;padding: 20px 0;}
+            @include flex;
+            @include align-items;
+            p{width: 80%;padding: 20px 0;word-wrap: break-word;}
+        }
+        .skill{
+            margin-top: 20px;
+            h3{display: inline-block;padding-right: 100px;}
+            img{padding-right: 30px;}
         }
     }
 }

@@ -35,6 +35,15 @@ body {
   display: block;
   clear: both; }
 
+.blind {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: none;
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%); }
+
 #header {
   display: -webkit-box;
   display: -moz-box;
@@ -199,9 +208,6 @@ body {
       width: 50%;
       padding: 5%;
       box-sizing: border-box; }
-      #about .txt > div > div {
-        width: 100%;
-        margin-bottom: 30px; }
     #about .txt .howdoithink h2 {
       font-size: 45px;
       font-weight: 700;
@@ -211,22 +217,25 @@ body {
       font-size: 25px; }
     #about .txt .howdoithink p {
       padding: 20px 0; }
-    #about .txt .character > div {
+    #about .txt .character {
       display: -webkit-box;
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
       -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: space-around;
-      justify-content: space-around;
-      margin-bottom: 30px; }
-    #about .txt .character strong {
-      text-align: center; }
-    #about .txt .character p {
-      width: 80%;
-      padding: 20px 0; }
+      align-items: center; }
+      #about .txt .character p {
+        width: 80%;
+        padding: 20px 0;
+        word-wrap: break-word; }
+    #about .txt .skill {
+      margin-top: 20px; }
+      #about .txt .skill h3 {
+        display: inline-block;
+        padding-right: 100px; }
+      #about .txt .skill img {
+        padding-right: 30px; }
 
 #about.on .window {
   width: 50%;

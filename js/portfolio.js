@@ -75,7 +75,7 @@ $(document).ready(function(){
         //열린 모달안에서 마우스 휠
         mousewheelMove(btnNum);
 
-            // 3-5)모달 창 닫기
+        // 3-5)모달 창 닫기
         $md.find('.close_btn').on('click',function(){
         // 0) 모달 숨기기
         $md.fadeOut();
@@ -88,7 +88,7 @@ $(document).ready(function(){
         // 4) .tabpanel.on 없애기 ( productJump 초기화)
         $md.find('.modal_wrap > .tabpanel').removeClass('on');
         });
-
+        // 5) dim에서 클릭, 마우스휠하면 모달 창 닫기
         $dim.on({
             click: function(){
                 $md.find('.close_btn').trigger('click');            
@@ -194,7 +194,7 @@ $(document).ready(function(){
             gsap.to($move, {marginTop: -moveHei,duration: 0.5, ease: Power3.easeOut});
                 break;
             case 2:
-            moveHei =  $md.find('.responsive .tabpanelR').eq(tabNum - 1).outerHeight() +   $md.find('.responsive .tabpanelR').eq(tabNum - 2).outerHeight();
+            moveHei =  $md.find('.responsive .tabpanelR').eq(tabNum - 1).outerHeight() +  $md.find('.responsive .tabpanelR').eq(tabNum - 2).outerHeight();
             gsap.to($move, {marginTop: -moveHei,duration: 0.5, ease: Power3.easeOut});
         }
     });
