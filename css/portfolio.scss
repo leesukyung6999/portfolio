@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import "_mixin", "_var";
+@import "_mixin";
 
 body, h1, h2, h3, h4, h5, h6, p, ul{margin: 0;padding: 0;}
 h1, h2, h3, h4, h5, h6{font-size: 100%;}
@@ -29,7 +29,7 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 // intro
 #intro{
-    background: url("../images/1_rainbow.png") , linear-gradient($pink,$wPurple);background-repeat: no-repeat;background-position: 100% 0;
+    background: url("../images/1_rainbow.png") , linear-gradient(#F8BC9D,#E2C1CD);background-repeat: no-repeat;background-position: 100% 0;
     .intro{
         position: relative;padding-top: 200px;
         .balloon{position: absolute;}
@@ -66,11 +66,11 @@ body{font-family: "noto sans kr";color: #fff;}
 }
 // about
 #about{
-    position: relative;height: 250vh;background: linear-gradient($wPurple, #AB9CDE);
+    position: relative;height: 250vh;background: linear-gradient(#E2C1CD, #AB9CDE);
     .sticky{position: sticky;top: 0;height: 100vh;}
     .window{
         @include transition(all 0.5s ease-in-out);
-        position: relative;z-index: 50;text-align: center;width: 100%;height: 100%;background: linear-gradient($wPurple, #AB9CDE);
+        position: relative;z-index: 50;text-align: center;width: 100%;height: 100%;background: linear-gradient(#E2C1CD, #AB9CDE);
         .img_wrap{
             @include translateX-50;
             position: absolute;top: 0;left: 50%;width: 700px;
@@ -85,24 +85,31 @@ body{font-family: "noto sans kr";color: #fff;}
     .txt{
         @include flex;
         @include justify-content(flex-end);
-        visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);font-size: 22px;line-height: 1.6;
+        visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);font-size: 18px;line-height: 1.6;
         > div{
             width: 50%;padding: 5%;box-sizing: border-box;
         }
         .howdoithink{
-            h2{font-size: 45px;font-weight: 700;margin-bottom: 30px;}
-            .bold{font-weight: 700;font-size: 25px;}
-            p{padding: 20px 0;}
+            h2{font-size: 30px;font-weight: 700;margin-bottom: 30px;}
+            .bold{font-weight: 700;font-size: 20px;}
+            p{padding-bottom: 20px;}
         }
         .character{
             @include flex;
             @include align-items;
-            p{width: 80%;padding: 20px 0;word-wrap: break-word;}
+            position: relative;
+            div{
+               strong{font-size: 20px;padding-bottom: 10px;border-bottom: 2px solid #707070;}
+                p{width: 80%;padding: 20px 0;word-wrap: break-word;}
+            }
         }
         .skill{
-            margin-top: 20px;
-            h3{display: inline-block;padding-right: 100px;}
-            img{padding-right: 30px;}
+            margin-top: 10px;
+            h3{font-size: 50px;padding: 0 50px 10px 25px;display: inline;color: #cd6798c5;}
+            img{padding-right: 30px;vertical-align: middle;}
+            span{
+                background: rgba(226, 193, 205, 0.4);box-sizing: border-box;border-radius: 30px;padding: 10px;display: inline-block;
+            }
         }
     }
 }
@@ -222,8 +229,12 @@ body{font-family: "noto sans kr";color: #fff;}
                 img:nth-of-type(3){@include transform(translate(0,0) rotate(-29deg));left: 55%;top: 81%;}
             }
             .responsive{
+                > *{width: 90%;margin: 0 50px;}
                 > ul{
-                    @include flex;position: relative;z-index: 50;
+                    @include flex;
+                    @include justify-content(space-between);
+                    @include align-items;
+                    position: relative;z-index: 50;
                     li{
                         @include transition(opacity 0.5s);
                         width: calc(100% / 3);height: 110px;opacity: 0.2;cursor: pointer;vertical-align: bottom;text-align: center;
@@ -233,24 +244,24 @@ body{font-family: "noto sans kr";color: #fff;}
                     li.on{opacity: 1;}
                 }
                 .move_up{ 
-                    height: 60vh;
+                    height: 65vh;
                     > div{
                     // tabpanelPC, tabpanelTb, tabpanelM 공통
-                        text-align: center;
                         .tabpanelR{
-                            > p{width: 450px;padding: 65px 0;text-align: left;font-size: 25px;}
+                            > p{width: 450px;font-size: 25px;padding: 65px 0;}
+                            p{text-align: left;}
                             ul li{
                                 height: 60vh;box-sizing: border-box;
-                                a{
-                                    display: block;
-                                    img{width: 33.854vw;}
-                                }
+                                a{display: block;}
                                 &:nth-child(even) .b{color: #FFB301;}
                                 .b_y{color: #FFB301;font-weight: 600;}
-                                p{text-align: left;}
                             }  
                         }
+                        #tabpanelTb{
+                            a{display: block;}
+                        }
                         #tabpanelM{
+                            > p{padding: 150px 0;}
                             ul li{
                                 @include flex;
                                 @include align-items(flex-end);
@@ -259,8 +270,9 @@ body{font-family: "noto sans kr";color: #fff;}
                                     img{width: 250px;}
                                 }
                                 .m_txt{
+                                    width: 600px;margin-left: 30px;
                                     strong{margin-top: -30px;}
-                                    p{width: 80%;padding: 0;}
+                                    p{padding: 0;display: inline-block;width: 70%;}
                                 }
                             }
                         }
@@ -276,9 +288,10 @@ body{font-family: "noto sans kr";color: #fff;}
 #contact{
     @include flex;
     @include justify-content(space-between);
+    @include align-items;
     background: url("../images/4_bg.png"), linear-gradient(#6D5BAB, #342C51);width: 100%;overflow: hidden;background-position: 0 -5%;background-repeat: no-repeat;height: 100vh;
     > *{float: left;box-sizing: border-box;height: 100%;margin-top: 200px;}
-    h2{width: 55%;font-size: 150px;font-weight: 700;color: rgba(255, 255, 255,.7);text-align: left;padding: 50px 150px;}
+    h2{width: 55%;font-size: 150px;font-weight: 700;color: rgba(255, 255, 255,.7);text-align: left;padding: 150px;}
     div{
         width: 45%;
         > div{height: 50%;}
@@ -286,14 +299,15 @@ body{font-family: "noto sans kr";color: #fff;}
             @include keyframes(upDown);
             @include animation(upDown 2.5s cubic-bezier(0.14, 0.47, 0.51, 1.04) infinite backwards);
             position: relative;
-            h2{position: absolute;left: 35%;top: -3%;}
+            h2{position: absolute;left: 40%;top: -24%;}
         }
         .contact_txt{
-            box-sizing: border-box;padding: 40px 0;
-            > div{background: no-repeat 3% 0%;height: 50px;margin-bottom: 20px;padding-left: 100px;}
+            box-sizing: border-box;padding: 40px 0;font-size: 20px;
+            > *{background: no-repeat 3% 0%;height: 50px;margin-bottom: 20px;padding-left: 100px;}
             .birth{background-image: url("../images/4_icon1.png");}
             .home{background-image: url("../images/4_icon2.png");}
             .email{background-image: url("../images/4_icon3.png");}
+            .github{background-image: url("../images/4_icon4.png");display: block;}
         }
     }
 }

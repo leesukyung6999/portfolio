@@ -202,21 +202,21 @@ body {
     height: 100%;
     color: #707070;
     background: rgba(255, 255, 255, 0.65);
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.6; }
     #about .txt > div {
       width: 50%;
       padding: 5%;
       box-sizing: border-box; }
     #about .txt .howdoithink h2 {
-      font-size: 45px;
+      font-size: 30px;
       font-weight: 700;
       margin-bottom: 30px; }
     #about .txt .howdoithink .bold {
       font-weight: 700;
-      font-size: 25px; }
+      font-size: 20px; }
     #about .txt .howdoithink p {
-      padding: 20px 0; }
+      padding-bottom: 20px; }
     #about .txt .character {
       display: -webkit-box;
       display: -moz-box;
@@ -224,18 +224,32 @@ body {
       display: -webkit-flex;
       display: flex;
       -webkit-align-items: center;
-      align-items: center; }
-      #about .txt .character p {
+      align-items: center;
+      position: relative; }
+      #about .txt .character div strong {
+        font-size: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #707070; }
+      #about .txt .character div p {
         width: 80%;
         padding: 20px 0;
         word-wrap: break-word; }
     #about .txt .skill {
-      margin-top: 20px; }
+      margin-top: 10px; }
       #about .txt .skill h3 {
-        display: inline-block;
-        padding-right: 100px; }
+        font-size: 50px;
+        padding: 0 50px 10px 25px;
+        display: inline;
+        color: #cd6798c5; }
       #about .txt .skill img {
-        padding-right: 30px; }
+        padding-right: 30px;
+        vertical-align: middle; }
+      #about .txt .skill span {
+        background: rgba(226, 193, 205, 0.4);
+        box-sizing: border-box;
+        border-radius: 30px;
+        padding: 10px;
+        display: inline-block; }
 
 #about.on .window {
   width: 50%;
@@ -493,12 +507,19 @@ body {
       transform: translate(0, 0) rotate(-29deg);
       left: 55%;
       top: 81%; }
+  #modalWork #tabpanel2 .responsive > * {
+    width: 90%;
+    margin: 0 50px; }
   #modalWork #tabpanel2 .responsive > ul {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
     position: relative;
     z-index: 50; }
     #modalWork #tabpanel2 .responsive > ul li {
@@ -518,45 +539,48 @@ body {
     #modalWork #tabpanel2 .responsive > ul li.on {
       opacity: 1; }
   #modalWork #tabpanel2 .responsive .move_up {
-    height: 60vh; }
-    #modalWork #tabpanel2 .responsive .move_up > div {
-      text-align: center; }
-      #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR > p {
-        width: 450px;
-        padding: 65px 0;
-        text-align: left;
-        font-size: 25px; }
-      #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li {
-        height: 60vh;
-        box-sizing: border-box; }
-        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li a {
-          display: block; }
-          #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li a img {
-            width: 33.854vw; }
-        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li:nth-child(even) .b {
-          color: #FFB301; }
-        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li .b_y {
-          color: #FFB301;
-          font-weight: 600; }
-        #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li p {
-          text-align: left; }
-      #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-align-items: flex-end;
-        align-items: flex-end; }
-        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li a {
-          display: inline-block; }
-          #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li a img {
-            width: 250px; }
+    height: 65vh; }
+    #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR > p {
+      width: 450px;
+      font-size: 25px;
+      padding: 65px 0; }
+    #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR p {
+      text-align: left; }
+    #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li {
+      height: 60vh;
+      box-sizing: border-box; }
+      #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li a {
+        display: block; }
+      #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li:nth-child(even) .b {
+        color: #FFB301; }
+      #modalWork #tabpanel2 .responsive .move_up > div .tabpanelR ul li .b_y {
+        color: #FFB301;
+        font-weight: 600; }
+    #modalWork #tabpanel2 .responsive .move_up > div #tabpanelTb a {
+      display: block; }
+    #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM > p {
+      padding: 150px 0; }
+    #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: flex-end;
+      align-items: flex-end; }
+      #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li a {
+        display: inline-block; }
+        #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li a img {
+          width: 250px; }
+      #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li .m_txt {
+        width: 600px;
+        margin-left: 30px; }
         #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li .m_txt strong {
           margin-top: -30px; }
         #modalWork #tabpanel2 .responsive .move_up > div #tabpanelM ul li .m_txt p {
-          width: 80%;
-          padding: 0; }
+          padding: 0;
+          display: inline-block;
+          width: 70%; }
   #modalWork .close_btn {
     position: absolute;
     right: -40px;
@@ -575,6 +599,8 @@ body {
   display: flex;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
   background: url("../images/4_bg.png"), linear-gradient(#6D5BAB, #342C51);
   width: 100%;
   overflow: hidden;
@@ -592,7 +618,7 @@ body {
     font-weight: 700;
     color: rgba(255, 255, 255, 0.7);
     text-align: left;
-    padding: 50px 150px; }
+    padding: 150px; }
   #contact div {
     width: 45%; }
     #contact div > div {
@@ -606,12 +632,13 @@ body {
 @-moz-keyframes upDown {}
       #contact div .contact_img h2 {
         position: absolute;
-        left: 35%;
-        top: -3%; }
+        left: 40%;
+        top: -24%; }
     #contact div .contact_txt {
       box-sizing: border-box;
-      padding: 40px 0; }
-      #contact div .contact_txt > div {
+      padding: 40px 0;
+      font-size: 20px; }
+      #contact div .contact_txt > * {
         background: no-repeat 3% 0%;
         height: 50px;
         margin-bottom: 20px;
@@ -622,6 +649,9 @@ body {
         background-image: url("../images/4_icon2.png"); }
       #contact div .contact_txt .email {
         background-image: url("../images/4_icon3.png"); }
+      #contact div .contact_txt .github {
+        background-image: url("../images/4_icon4.png");
+        display: block; }
 
 @keyframes upDown {
   0% {

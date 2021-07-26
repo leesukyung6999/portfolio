@@ -287,6 +287,17 @@ $(document).ready(function(){
 
 
 
+        // let moveHei = new Array(3);
+        // $md.find('.responsive .tabpanelR').each(function(idx){
+        //     moveHei[idx] += $(this).outerHeight(true);
+        // });
+        // console.log($(this).outerHeight(true));
+        // if (tabNum === 0){
+        //     gsap.to($move, {marginTop: 0,duration: 0.5, ease: Power3.easeOut});
+        // }
+        // else {
+        //     gsap.to($move, {marginTop: -moveHei[tabNum - 1],duration: 0.5, ease: Power3.easeOut});
+        // }
 
 
 
