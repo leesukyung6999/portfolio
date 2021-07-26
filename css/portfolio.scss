@@ -90,7 +90,7 @@ body{font-family: "noto sans kr";color: #fff;}
             width: 50%;padding: 5%;box-sizing: border-box;
         }
         .howdoithink{
-            h2{font-size: 30px;font-weight: 700;margin-bottom: 30px;}
+            h2{font-size: 40px;font-weight: 700;margin-bottom: 30px;}
             .bold{font-weight: 700;font-size: 20px;}
             p{padding-bottom: 20px;}
         }
@@ -104,11 +104,11 @@ body{font-family: "noto sans kr";color: #fff;}
             }
         }
         .skill{
-            margin-top: 10px;
-            h3{font-size: 50px;padding: 0 50px 10px 25px;display: inline;color: #cd6798c5;}
-            img{padding-right: 30px;vertical-align: middle;}
-            span{
-                background: rgba(226, 193, 205, 0.4);box-sizing: border-box;border-radius: 30px;padding: 10px;display: inline-block;
+            margin-top: 55px;
+            h3{font-size: 40px;padding: 0 50px 10px 25px;display: inline-block;color: #cd6798c5;}
+            div{
+                background: rgba(226, 193, 205, 0.4);box-sizing: border-box;border-radius: 30px;padding: 20px;display: inline-block;
+                img{padding: 15px;}
             }
         }
     }

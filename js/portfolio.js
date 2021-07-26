@@ -77,11 +77,9 @@ $(document).ready(function(){
         $md.find('.tab').eq(btnNum).attr('tabIndex',0).focus();
         $(document).on('keydown',function(e){
             const key = e.keyCode;
-            console.log(key, btnNum); //왼: 37, 오: 39 enter: 13 esc:
+            //console.log(key, btnNum); 왼: 37, 오: 39 enter: 13 esc:
             switch (key) {
                 case 37: // 왼쪽
-                
-                    break;
                 case 39: // 오른쪽
                     $md.find('.tab').eq(btnNum).removeAttr('tabIndex').siblings().attr('tabIndex',0).focus();                   
                     break;

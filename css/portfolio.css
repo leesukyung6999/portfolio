@@ -209,7 +209,7 @@ body {
       padding: 5%;
       box-sizing: border-box; }
     #about .txt .howdoithink h2 {
-      font-size: 30px;
+      font-size: 40px;
       font-weight: 700;
       margin-bottom: 30px; }
     #about .txt .howdoithink .bold {
@@ -235,21 +235,20 @@ body {
         padding: 20px 0;
         word-wrap: break-word; }
     #about .txt .skill {
-      margin-top: 10px; }
+      margin-top: 55px; }
       #about .txt .skill h3 {
-        font-size: 50px;
+        font-size: 40px;
         padding: 0 50px 10px 25px;
-        display: inline;
+        display: inline-block;
         color: #cd6798c5; }
-      #about .txt .skill img {
-        padding-right: 30px;
-        vertical-align: middle; }
-      #about .txt .skill span {
+      #about .txt .skill div {
         background: rgba(226, 193, 205, 0.4);
         box-sizing: border-box;
         border-radius: 30px;
-        padding: 10px;
+        padding: 20px;
         display: inline-block; }
+        #about .txt .skill div img {
+          padding: 15px; }
 
 #about.on .window {
   width: 50%;
