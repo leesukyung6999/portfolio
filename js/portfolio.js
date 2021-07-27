@@ -90,7 +90,12 @@ $(document).ready(function(){
                     break;
                 case 27: // esc키: 모달 나가기
                     $md.find('.close_btn').trigger('click');   
-        }
+                    break;
+            }
+            if (e.shiftKey && key === 9 ){
+                e.preventDefault();
+                $md.find('.close_btn').focus(); 
+            }
             btnNum === 0 ? btnNum ++: btnNum --;
 
         });
@@ -164,10 +169,11 @@ $(document).ready(function(){
     // 3-4) 코닥에서 .responsive > ul li 누르면 opacity: 1
     let moveHei;
     let $move;
+    let tabNum;
     $md.find('.responsive > ul li').on({
         click: function(){
             $move = $(this).parent().next().children();
-            const tabNum = $(this).index();
+            tabNum = $(this).index();
             //console.log(tabNum);
             $(this).addClass('on').siblings().removeClass('on');
             switch (tabNum) {
@@ -185,7 +191,7 @@ $(document).ready(function(){
         },
         keydown: function(e){
             const key = e.keyCode;
-            //console.log(key, btnNum); 왼: 37, 오: 39 enter: 13 esc:
+            console.log($move, moveHei); //왼: 37, 오: 39 enter: 13 esc:
             switch (key) {
                 case 37: // 왼쪽
                 $(this).removeClass('on').removeAttr('tabIndex');
@@ -206,7 +212,6 @@ $(document).ready(function(){
                 }
                 break;
                 case 13: // enter키: 해당 tabpanel 보여지기
-                gsap.to($move, {marginTop: -moveHei,duration: 0.5, ease: Power3.easeOut});
             }
         }
     });
