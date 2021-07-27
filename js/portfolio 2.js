@@ -53,25 +53,18 @@ $(document).ready(function(){
     $('.back').on({
         focusin: function() {
             $('.front_back').addClass('flip');
-        },
-        focusout: function() {
-            $('.front_back').removeClass('flip');
         }
     })
 
-    // 3-2) work 모달창 제어
-    // 변수선언
+     // 3-2) work 모달창 열기 제어
     const wrapHei = $('#wrap').height();
     const $btn = $card.find('button');
     const $md = $('#modalWork');
-    // 0)모달 초기화
+        // 0)모달 초기화
     $md.hide().attr({'aria-hidden': 'true',inert: ''});
     
-    const $mdWrap = $md.children('.modal_wrap');
     $btn.on('click', function(){
-        // 0) 변수 선언
         let btnNum;
-        let idxNum = 0;    
         // 1) 모달 창 열리면 뒤에 화면 스크롤 안 움직이게
         $('html, body').css({height: wrapHei, overflow: 'hidden'});
         // 2) 열려진 모달을 제외한 나머지에 스크린리더 접근 제한: aria-hidden, inert
@@ -83,16 +76,12 @@ $(document).ready(function(){
         if ($(this).hasClass('sulwhasoo')){
             btnNum = 0;
             // 4-1) 설화수 창 보이게 함
-            $md.fadeIn().find('#tab1').addClass('on').siblings().removeClass('on');
-            $mdWrap.removeClass('active').find('#tabpanel1').show().removeAttr('aria-hidden','inert').find('.move_up ul li').attr({tabIndex: 0});
-            $md.find('#tabpanel2').hide().attr({'aria-hidden': true, inert: ''}).find('.move_up ul li').removeAttr('tabIndex', 'inert');
-        }
+            $md.fadeIn().children('.modal_wrap').removeClass('active').find('ul[role="tablist"] .tab:first-child').addClass('on').siblings().removeClass('on').parent().next().show().removeAttr('aria-hidden','inert').next().hide().attr({'aria-hidden': true,inert: ''});
+            }
         else{
             btnNum = 1;
             // 4-2) 코닥 창 보이게 함
-            $md.fadeIn().find('#tab2').addClass('on').siblings().removeClass('on');
-            $mdWrap.addClass('active').find('#tabpanel2').show().removeAttr('aria-hidden', inert).find('.move_up ul li').attr('tabIndex',0);
-            
+            $md.fadeIn().children('.modal_wrap').addClass('active').find('ul[role="tablist"] .tab:last-child').addClass('on').siblings().removeClass('on').parent().next().hide().attr({'aria-hidden': true,inert: ''}).next().show().removeAttr('aria-hidden','inert');
         }
         // 5) 모달 열릴때 제품이 떠오르게 만들기
         productJump(btnNum);
@@ -254,12 +243,12 @@ $(document).ready(function(){
         let timer = 0;
         let idx = 1;
         $md.on('mousewheel DOMMouseScroll',function(e){
+            if ($(this).is(':animated')) return false;
             clearTimeout(timer);
             //console.log(e.originalEvent.wheelDelta);
             timer = setTimeout(function(){
                 const delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
                 //console.log(delta);
-                if ($mdWrap.is(':animated')) return false;
                 
                 const $move = $md.find('.move_up').eq($num).children();// ul태그 끌어올리기
                 const moveHei = $num === 0 ? $move.find('li').height(): $move.find('.tabpanelR li').height(); // 얼만큼 움직이는지

@@ -168,14 +168,14 @@ $(document).ready(function () {
   
               // 마우스휠 내릴때
               if (delta < 0 && idx < moveArr[idxNum][1]) {
-                $tgTabpanel.find('.move_up').children().stop().animate({marginTop: -idx * moveArr[idxNum][0]}, 800);
+                $tgTabpanel.find('.move_up').children().stop().animate({marginTop: -idx * moveArr[idxNum][0]}, 2500);
                 idx++;
                 console.log(idx);
               }
               // 마우스휠 올릴때
               else if (delta > 0 && idx > 1) {
                 idx--;
-                $tgTabpanel.find('.move_up').children().stop().animate({marginTop: -(idx - 1) * moveArr[idxNum][0]}, 800);
+                $tgTabpanel.find('.move_up').children().stop().animate({marginTop: -(idx - 1) * moveArr[idxNum][0]}, 2500);
                 console.log(idx);
               }
   
