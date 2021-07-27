@@ -49,6 +49,13 @@ $(document).ready(function(){
         if (key === 37 || key === 39) $(this).siblings().focus();
     });
 
+    // 이전 다음 버튼 말고도 .front 다음의 .back에 있는 버튼에 포커스가 가면 .back이 보여지게 만들기
+    $('.back').on({
+        focusin: function() {
+            $('.front_back').addClass('flip');
+        }
+    })
+
      // 3-2) work 모달창 열기 제어
     const wrapHei = $('#wrap').height();
     const $btn = $card.find('button');

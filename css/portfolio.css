@@ -617,7 +617,8 @@ body {
     font-weight: 700;
     color: rgba(255, 255, 255, 0.7);
     text-align: left;
-    padding: 150px; }
+    padding: 150px;
+    font-family: patua; }
   #contact div {
     width: 45%; }
     #contact div > div {

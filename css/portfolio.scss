@@ -291,7 +291,7 @@ body{font-family: "noto sans kr";color: #fff;}
     @include align-items;
     background: url("../images/4_bg.png"), linear-gradient(#6D5BAB, #342C51);width: 100%;overflow: hidden;background-position: 0 -5%;background-repeat: no-repeat;height: 100vh;
     > *{float: left;box-sizing: border-box;height: 100%;margin-top: 200px;}
-    h2{width: 55%;font-size: 150px;font-weight: 700;color: rgba(255, 255, 255,.7);text-align: left;padding: 150px;}
+    h2{width: 55%;font-size: 150px;font-weight: 700;color: rgba(255, 255, 255,.7);text-align: left;padding: 150px;font-family: patua;}
     div{
         width: 45%;
         > div{height: 50%;}
