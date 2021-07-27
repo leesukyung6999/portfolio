@@ -75,7 +75,7 @@ $(document).ready(function(){
 
         // 7) tab(설화수/코닥)에 포커스 가게 하기
         $md.find('.tab').eq(btnNum).attr('tabIndex',0).focus();
-        $(document).on('keydown',function(e){
+        $md.find('.tab').on('keydown',function(e){
             const key = e.keyCode;
             //console.log(key, btnNum); 왼: 37, 오: 39 enter: 13 esc:
             switch (key) {
@@ -130,7 +130,8 @@ $(document).ready(function(){
             // 4) .tabpanel.on 없애기 ( productJump 초기화)
             $md.find('.modal_wrap > .tabpanel').removeClass('on');
             // 5) .move_up div margin-top 없애기 ( mousewheelMove 초기화)
-            $md.find('.move_up').children().css('marginTop',0);            
+            $md.find('.move_up').children().css('marginTop',0);        
+            $md.find('.responsive > ul li').removeClass('on').removeAttr('tabIndex');        
             $btn.eq(btnNum).focus();
             },
 
@@ -140,6 +141,9 @@ $(document).ready(function(){
                 if (!e.shiftKey && key === 9){
                     e.preventDefault();
                     $md.find('#tab1').attr('tabIndex',0).focus();
+                }
+                else if (key === 13) {
+                    $md.find('.responsive > ul li').removeClass('on').removeAttr('tabIndex');    
                 }
                 //console.log($md.find('#tab1'));
             }
@@ -158,13 +162,14 @@ $(document).ready(function(){
 
 
     // 3-4) 코닥에서 .responsive > ul li 누르면 opacity: 1
+    let moveHei;
+    let $move;
     $md.find('.responsive > ul li').on({
         click: function(){
+            $move = $(this).parent().next().children();
             const tabNum = $(this).index();
             //console.log(tabNum);
             $(this).addClass('on').siblings().removeClass('on');
-            const $move = $(this).parent().next().children();
-            let moveHei;
             switch (tabNum) {
                 case 0:
                 gsap.to($move, {marginTop: 0,duration: 0.5, ease: Power3.easeOut});
@@ -180,8 +185,28 @@ $(document).ready(function(){
         },
         keydown: function(e){
             const key = e.keyCode;
+            //console.log(key, btnNum); 왼: 37, 오: 39 enter: 13 esc:
             switch (key) {
-
+                case 37: // 왼쪽
+                $(this).removeClass('on').removeAttr('tabIndex');
+                if($(this).is('.first')) {
+                    $(this).siblings('.last').attr('tabIndex',0).focus().addClass('on');
+                }
+                else {
+                    $(this).prev().attr('tabIndex',0).focus().addClass('on');
+                }
+                break;
+                case 39: // 오른쪽
+                $(this).removeClass('on').removeAttr('tabIndex');
+                if($(this).is('.last')) {
+                    $(this).siblings('.first').attr('tabIndex',0).focus().addClass('on');
+                }
+                else {
+                    $(this).next().attr('tabIndex',0).focus().addClass('on');
+                }
+                break;
+                case 13: // enter키: 해당 tabpanel 보여지기
+                gsap.to($move, {marginTop: -moveHei,duration: 0.5, ease: Power3.easeOut});
             }
         }
     });
