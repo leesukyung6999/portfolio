@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+//ee
     $(window).on('scroll',function(){
         const scrollY = $(window).scrollTop() + $(this).height() * 2/3;
         // 1) intro fade 효과로 올라오기

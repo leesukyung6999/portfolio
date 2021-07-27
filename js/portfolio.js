@@ -258,14 +258,14 @@ $(document).ready(function(){
                 // 스크롤 내릴때
                 if (delta < 0 && idx < moveMaxNum) {
                     //gsap.to($move, {marginTop: -idx * moveHei,duration: 0.5, ease: Power3.easeOut});
-                    $move.stop().animate({marginTop: -idx * moveHei}, 600, Power3.easeOut);
+                    $move.stop().animate({marginTop: -idx * moveHei}, 800, Power3.easeOut);
                     idx++;
                 }
                 // 스크롤 올릴때
                 else if (delta > 0 && idx > 1) {
                     idx--;
                     //gsap.to($move, {marginTop: -(idx - 1)* moveHei,duration: 0.5, ease: Power3.easeOut});
-                    $move.stop().animate({marginTop: -(idx - 1) * moveHei}, 600, Power3.easeOut);
+                    $move.stop().animate({marginTop: -(idx - 1) * moveHei}, 800, Power3.easeOut);
                 }
         
             }, 10);
