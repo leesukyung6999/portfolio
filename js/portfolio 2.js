@@ -1,12 +1,6 @@
 $(document).ready(function(){
-    // #gnb
-    $('#gnb a').on('click', function (e) {
-        e.preventDefault();
-        const $tg = $($(this).attr('href'));
-        $('html, body').stop().animate({scrollTop: $tg.offset().top}, 700);
-      });
 
-      $(window).on('scroll',function(){
+    $(window).on('scroll',function(){
         const scrollY = $(window).scrollTop() + $(this).height() * 2/3;
         // 1) intro fade 효과로 올라오기
         $('.intro').each(function(){
@@ -44,10 +38,7 @@ $(document).ready(function(){
             $card.eq(0).removeAttr('aria-hidden').siblings('.card').attr('aria-hidden','true');
         }
     });
-    $controller.find('button').on('keydown', function(e){
-        const key = e.keyCode;
-        if (key === 37 || key === 39) $(this).siblings().focus();
-    });
+    
 
      // 3-2) work 모달창 열기 제어
     const wrapHei = $('#wrap').height();
