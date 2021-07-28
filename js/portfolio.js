@@ -133,7 +133,7 @@ $(document).ready(function(){
         });
         
         // 9) 코닥 responsive 중 처음에 .on 갖기
-        $md.find('.responsive > ul li').eq(0).addClass('on').attr('tabIndex',0);
+        $md.find('.responsive > ul li').addClass('on').attr('tabIndex',0);
 
         // 10) 모달 창 닫기
         $md.find('.close_btn').on({
