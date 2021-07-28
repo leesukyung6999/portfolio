@@ -133,7 +133,7 @@ $(document).ready(function(){
         });
         
         // 9) 코닥 responsive 중 처음에 .on 갖기
-        $md.find('.responsive > ul li').addClass('on').attr('tabIndex',0);
+        $md.find('.responsive > ul li').eq(0).addClass('on').attr('tabIndex',0);
 
         // 10) 모달 창 닫기
         $md.find('.close_btn').on({
@@ -191,7 +191,7 @@ $(document).ready(function(){
             $move = $(this).parent().next().children();
             tabNum = $(this).index();
             //console.log(tabNum);
-            //$(this).addClass('on').siblings().removeClass('on');
+            $(this).addClass('on').siblings().removeClass('on');
             switch (tabNum) {
                 case 0:
                 gsap.to($move, {marginTop: 0,duration: 0.5, ease: Power3.easeOut});
@@ -210,21 +210,21 @@ $(document).ready(function(){
             console.log($move, moveHei); //왼: 37, 오: 39 enter: 13 esc:
             switch (key) {
                 case 37: // 왼쪽
-                $(this).removeAttr('tabIndex');
+                $(this).removeClass('on').removeAttr('tabIndex');
                 if($(this).is('.first')) {
-                    $(this).siblings('.last').attr('tabIndex',0).focus()/* .addClass('on') */;
+                    $(this).siblings('.last').attr('tabIndex',0).focus().addClass('on');
                 }
                 else {
-                    $(this).prev().attr('tabIndex',0).focus()/* .addClass('on') */;
+                    $(this).prev().attr('tabIndex',0).focus().addClass('on');
                 }
                 break;
                 case 39: // 오른쪽
-                $(this)/* .removeClass('on') */.removeAttr('tabIndex');
+                $(this).removeClass('on').removeAttr('tabIndex');
                 if($(this).is('.last')) {
-                    $(this).siblings('.first').attr('tabIndex',0).focus()/* .addClass('on') */;
+                    $(this).siblings('.first').attr('tabIndex',0).focus().addClass('on');
                 }
                 else {
-                    $(this).next().attr('tabIndex',0).focus()/* .addClass('on') */;
+                    $(this).next().attr('tabIndex',0).focus().addClass('on');
                 }
                 break;
                 case 13: // enter키: 해당 tabpanel 보여지기
@@ -258,14 +258,14 @@ $(document).ready(function(){
                 // 스크롤 내릴때
                 if (delta < 0 && idx < moveMaxNum) {
                     //gsap.to($move, {marginTop: -idx * moveHei,duration: 0.5, ease: Power3.easeOut});
-                    $move.stop().animate({marginTop: -idx * moveHei}, 800, Power3.easeOut);
+                    $move.stop().animate({marginTop: -idx * moveHei}, 600, Power3.easeOut);
                     idx++;
                 }
                 // 스크롤 올릴때
                 else if (delta > 0 && idx > 1) {
                     idx--;
                     //gsap.to($move, {marginTop: -(idx - 1)* moveHei,duration: 0.5, ease: Power3.easeOut});
-                    $move.stop().animate({marginTop: -(idx - 1) * moveHei}, 800, Power3.easeOut);
+                    $move.stop().animate({marginTop: -(idx - 1) * moveHei}, 600, Power3.easeOut);
                 }
         
             }, 10);

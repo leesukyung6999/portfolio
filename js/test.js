@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  //ee
     // #gnb
     $('#gnb a').on('click', function (e) {
       e.preventDefault();

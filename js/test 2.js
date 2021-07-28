@@ -92,7 +92,7 @@ $(document).ready(function () {
               btnNum = 0;
               // 설화수 창 보이게 함
               $md.fadeIn().find('#tab1').addClass('on').siblings().removeClass('on');
-              $md.find('#tabpanel1').show().removeAttr('aria-hidden','inert').find('.move_up ul li').attr({tabIndex: 0});
+               $mdWrap.removeClass('active').find('#tabpanel1').show().removeAttr('aria-hidden','inert').find('.move_up ul li').attr({tabIndex: 0});
               $md.find('#tabpanel2').hide().attr({'aria-hidden': true,inert: ''}).find('.move_up ul li').removeAttr('tabIndex');
             }
           else{

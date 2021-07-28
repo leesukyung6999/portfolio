@@ -1,6 +1,6 @@
 @charset "utf-8";
 @import "_mixin";
-//초기화
+
 body, h1, h2, h3, h4, h5, h6, p, ul{margin: 0;padding: 0;}
 h1, h2, h3, h4, h5, h6{font-size: 100%;}
 ul{list-style: none;}
@@ -85,7 +85,7 @@ body{font-family: "noto sans kr";color: #fff;}
     .txt{
         @include flex;
         @include justify-content(flex-end);
-        visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100포;height: 100%;color: #707070;background: rgba(255,255,255,.65);font-size: 18px;line-height: 1.6;
+        visibility: hidden;opacity: 0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;color: #707070;background: rgba(255,255,255,.65);font-size: 18px;line-height: 1.6;
         > div{
             width: 50%;padding: 5%;box-sizing: border-box;
         }
@@ -160,7 +160,7 @@ body{font-family: "noto sans kr";color: #fff;}
 #dim{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(255, 255, 255,.7);}
 #modalWork{
     @include translate-50;
-    position: fixed;top: 50%;left: 50%;z-index: 70;width: calc(100% - 140px);height: calc(100% - 140px);border-radius: 30px;
+    position: fixed;top: 50%;left: 50%;z-index: 70;width: calc(100% - 140px);height: calc(100% - 140px);;
     .modal_wrap{
         /* margin: 70px 70px; */background: #F6CD85;height: calc(100vh - 140px);overflow: hidden;
         // tablist 와 tab
