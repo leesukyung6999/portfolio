@@ -152,7 +152,7 @@ $(document).ready(function(){
             $md.find('.modal_wrap > .tabpanel').removeClass('on');
             // 5) .move_up div margin-top 없애기 ( mousewheelMove 초기화)
             $md.find('.move_up').children().css('marginTop',0);        
-            $md.find('.responsive > ul li').removeClass('on').removeAttr('tabIndex');        
+            $md.find('.responsive > ul li')/* .removeClass('on').removeAttr('tabIndex') */;        
             $btn.eq(btnNum).focus();
             },
 
@@ -191,7 +191,7 @@ $(document).ready(function(){
             $move = $(this).parent().next().children();
             tabNum = $(this).index();
             //console.log(tabNum);
-            $(this).addClass('on').siblings().removeClass('on');
+            //$(this).addClass('on').siblings().removeClass('on');
             switch (tabNum) {
                 case 0:
                 gsap.to($move, {marginTop: 0,duration: 0.5, ease: Power3.easeOut});
